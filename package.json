@@ -3,8 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.5.0",
+    "gsap": "^2.0.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-fontawesome": "^1.6.1",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1"
   },
   "scripts": {

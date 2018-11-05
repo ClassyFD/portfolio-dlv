@@ -18,3 +18,8 @@ h1 {
   height: 100vh;
   background: #252627;
 }
+
+.About, .Skills, .Contact, .Home, .Projects {
+  height: 100vh;
+  margin-left: 70px;
+}

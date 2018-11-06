@@ -7,13 +7,24 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 20;
 }
-
-
 .Nav section {
   width: 70px;
 }
 
+@media(max-width:1100px) {
+  .Nav {
+    top: 0;
+    height: 70px;
+    width: 100%;
+    flex-direction: row;
+  }
+  .Nav section {
+    height: 70px;
+    width: auto;
+  }
+}
 
 .nav_icon {
   display: flex;
@@ -30,7 +41,6 @@
 .nav_icon p {
   font-size: 12px;
 }
-
 
 .nav_buttons {
   display: flex;
@@ -56,6 +66,11 @@
   font-size: 16px;
 }
 
+@media(max-width:1100px) {
+  .nav_buttons {
+    flex-direction: row;
+  }
+}
 
 .nav_link {
   text-decoration: none;
@@ -73,4 +88,10 @@
   padding: 7px;
   cursor: pointer;
   color: #42474b;
+}
+
+@media(max-width:1100px) {
+ .nav_social_media {
+   flex-direction: row;
+ } 
 }

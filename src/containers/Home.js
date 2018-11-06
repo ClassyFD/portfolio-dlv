@@ -22,11 +22,11 @@ class Home extends Component {
     const ptl = new TimelineMax();
     const sptl = new TimelineMax();
     const btl = new TimelineMax();
-    tl.staggerFrom('.home_it1', 1, {opacity: 0}, .05)
-      .staggerTo('.home_it1', .1, {color: '#59bd8e'}, .05, '-=1')
-      .staggerTo('.home_it1', .3, {fontSize: '64px', ease: Power1.easeOut}, .05, '-=1')
-      .staggerTo('.home_it1', .5, {color:'#ffffff'}, .03, '-=.8')
-      .staggerTo('.home_it1', .5, {fontSize: '56px', ease: Power1.easeOut}, .03, '-=.7');
+    tl.staggerFrom('.home_it1', 1, {opacity: 0}, .05, '+=.3')
+      .staggerTo('.home_it1', .1, {color: '#59bd8e'}, .05, '-=1.4')
+      .staggerTo('.home_it1', .3, {fontSize: '64px', ease: Power1.easeOut}, .05, '-=1.4')
+      .staggerTo('.home_it1', .5, {color:'#ffffff'}, .03, '-=1')
+      .staggerTo('.home_it1', .5, {fontSize: '56px', ease: Power1.easeOut}, .03, '-=.8');
       
     tl.staggerFrom('.home_it2', 1, {opacity: 0}, .05, '-=.6')
       .staggerTo('.home_it2', .1, {color: '#59bd8e'}, .05, '-=1.6')
@@ -37,8 +37,8 @@ class Home extends Component {
     tl.staggerFrom('.home_it3', 1, {opacity: 0}, .05, '-=.8')
       .staggerTo('.home_it3', .1, {color: '#59bd8e'}, .05, '-=1.9')
       .staggerTo('.home_it3', .3, {fontSize: '64px', ease: Power1.easeOut}, .05, '-=1.9')
-      .staggerTo('.home_it3', .5, {color:'#ffffff'}, .04, '-=1.6')
-      .staggerTo('.home_it3', .5, {fontSize: '56px', ease: Power1.easeOut}, .04, '-=1.6');
+      .staggerTo('.home_it3', .5, {color:'#ffffff'}, .03, '-=1.5')
+      .staggerTo('.home_it3', .5, {fontSize: '56px', ease: Power1.easeOut}, .04, '-=1.7');
 
     ptl.from('.home_p', 1, {opacity: 0}, '+=2');
     sptl.from('.home_h1_span', 1, {opacity: 0}, '+=2')

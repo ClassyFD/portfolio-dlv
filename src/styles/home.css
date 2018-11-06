@@ -15,6 +15,8 @@
   position: relative;
   user-select: none;
   height: 56px;
+  position: relative;
+  z-index: 10;
 }
 .home_intro_section p {
   font-family: tbb;
@@ -24,23 +26,10 @@
   display: flex;
   cursor: default;
   user-select: none;
+  position: relative;
+  z-index: 10;
 }
-.home_intro_section button {
-  width: 150px;
-  margin-left: 120px;
-  border: 2px solid #59bd8e;
-  border-radius: 5px;
-  background: none;
-  color: white;
-  font-size: 14px;
-  font-family: tbb;
-  padding: 5px;
-  padding-top: 9px;
-  color: #59bd8e;
-  cursor: pointer;
-  user-select: none;
-  outline: none;
-}
+
 
 .home_h1_span {
   color: #42474b;
@@ -55,7 +44,7 @@
   width: 80px;
 }
 .home_h1_span:nth-of-type(2) {
-  width: 700px;
+  width: 660px;
 }
 .home_p_span {
   color: #42474b;
@@ -79,4 +68,32 @@
 }
 .home_button_span:nth-of-type(4) {
   width: 170px;
+}
+.home_button {
+  width: 100%;
+  border: 2px solid #59bd8e;
+  border-radius: 5px;
+  background: none;
+  color: white;
+  font-size: 14px;
+  font-family: tbb;
+  padding: 5px;
+  padding-top: 9px;
+  color: #59bd8e;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  position: relative;
+  z-index: 10;
+}
+.home_link {
+  width: 150px;
+  margin-left: 120px;
+}
+.home_logo_section {
+  position: absolute;
+  top: 10vh;
+  left: 55%;
+  transform: rotate(10deg);
+  z-index: 5;
 }

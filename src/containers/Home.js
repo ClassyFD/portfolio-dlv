@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { TweenMax, TimelineMax, Power1 } from 'gsap';
 import { Link } from 'react-router-dom';
+import Logo from '../res/logo.png';
 import * as actions from '../redux/actions';
 import '../styles/home.css';
 
@@ -67,7 +68,7 @@ class Home extends Component {
   render = () => {
     let introText1 = "Hi,";
     let introText2 = "I'm Fernando,"
-    let introText3 = "Fullstack developer.";
+    let introText3 = "fullstack developer.";
     introText1 = introText1.split('');
     introText1 = introText1.map((el, i)=>{
       return (
@@ -101,8 +102,11 @@ class Home extends Component {
             <span className="home_p_span">{"</p>"}</span>
           </p>
           <span className="home_button_span">{"<button>"}</span>
-          <Link to="/contact"><button className="home_button" onMouseEnter={this.enterButton} onMouseLeave={this.leaveButton}>C O N T A C T  &nbsp;&nbsp; M E</button></Link>
+          <Link className="home_link" to="/contact"><button className="home_button" onMouseEnter={this.enterButton} onMouseLeave={this.leaveButton}>C O N T A C T  &nbsp;&nbsp; M E</button></Link>
           <span className="home_button_span">{"</button>"}</span>
+        </section>
+        <section className="home_logo_section">
+          <img height={600} src={Logo}/>
         </section>
       </main>
     )

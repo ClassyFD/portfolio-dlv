@@ -1,0 +1,123 @@
+.home_intro_section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  position: relative;
+}
+.home_intro_section aside {
+  font-family: tbb;
+  padding-left: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+}
+.home_intro_section aside > h1 {
+  position: relative;
+  user-select: none;
+  height: 48px;
+  font-size: 48px;
+  position: relative;
+  z-index: 10;
+}
+.home_intro_section p {
+  font-family: tbb;
+  font-size: 15px;
+  padding-left: 100px;
+  color: #5d5e5f;
+  display: flex;
+  cursor: default;
+  user-select: none;
+  position: relative;
+  z-index: 10;
+  width: 400px;
+}
+
+@media(max-width: 370px) {
+  .home_intro_section aside {
+    width: 280px;
+  }
+  .home_it2_3 {
+    flex-basis: 190px;
+  }
+  .home_it3_3 {
+    flex-basis: 150px;
+  }
+  .home_intro_section p {
+    width: 200px;
+    text-align: center;
+  }
+  .home_p_span {
+    top: 20px;
+    position: relative;
+  }
+}
+
+.home_h1_span {
+  color: #42474b;
+  opacity: .7;
+  font-family: tbb;
+  display: flex;
+  justify-content: flex-end;
+  cursor: default;
+  user-select: none;
+}
+.home_h1_span:nth-of-type(1) {
+  width: 100px;
+}
+.home_h1_span:nth-of-type(2) {
+  width: 500px;
+}
+.home_p_span {
+  color: #42474b;
+  opacity: .7;
+  font-family: tbb;
+  display: flex;
+}
+.home_button_span {
+  color: #42474b;
+  opacity: .7;
+  font-family: tbb;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  cursor: default;
+  user-select: none;
+}
+.home_button_span:nth-of-type(3) {
+  margin-top: 30px;
+  width: 160px;
+}
+.home_button_span:nth-of-type(4) {
+  width: 170px;
+}
+.home_button {
+  width: 100%;
+  border: 2px solid #59bd8e;
+  border-radius: 5px;
+  background: none;
+  color: white;
+  font-size: 14px;
+  font-family: tbb;
+  padding: 5px;
+  padding-top: 9px;
+  color: #59bd8e;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  position: relative;
+  z-index: 10;
+}
+.home_link {
+  width: 150px;
+  margin-left: 120px;
+}
+.home_logo {
+  position: absolute;
+  top: 10vh;
+  left: 55%;
+  transform: rotate(10deg);
+  z-index: 5;
+  height: 600px;
+}

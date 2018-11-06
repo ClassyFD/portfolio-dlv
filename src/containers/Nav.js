@@ -51,7 +51,7 @@ class Nav extends Component {
       <main className={'Nav'}>
         <Link className="nav_link" to='/'>
           <section className="nav_icon">
-            <img src={Logo} alt="profile logo"/>
+            <img height={32} width={32} src={Logo} alt="profile logo"/>
             <p>Fernando</p>
           </section>
         </Link>

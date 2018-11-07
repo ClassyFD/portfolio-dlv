@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { TweenMax, TimelineMax, Power1 } from 'gsap';
 import { Link } from 'react-router-dom';
 import Logo from '../res/logo.png';
+import Portrait from '../res/portrait.png';
 import * as actions from '../redux/actions';
 import '../styles/home.css';
 
@@ -25,6 +26,7 @@ class Home extends Component {
     const ptl = new TimelineMax();
     const sptl = new TimelineMax();
     const btl = new TimelineMax();
+    const ltl = new TimelineMax();
     let largeFont = '56px';
     let smallFont = '48px';
 
@@ -48,6 +50,7 @@ class Home extends Component {
 
     ptl.from('.home_p', 1, {opacity: 0}, '+=2');
     sptl.from('.home_h1_span', 1, {opacity: 0}, '+=2');
+    ltl.from('.home_logo', 1, {opacity: 0}, '+=2')
     btl.from('.home_button', 1, {opacity: 0}, '+=2')
       .from('.home_button_span', 1, {opacity: 0}, '-=1');
 
@@ -81,29 +84,31 @@ class Home extends Component {
     let logoLeft;
     let ease = Power1.easeOut;
     let logoStyle;
-    if (window.innerWidth >= 1290) {
+    const innerWidth = window.innerWidth;
+    const innerHeight = window.innerHeight;
+    if (innerWidth >= 1290) {
       logoHeight = 600;
       logoTop = '10vh';
       logoLeft = '55%';
     }
-    if (window.innerWidth < 1290) {
+    if (innerWidth < 1290) {
       logoHeight = 500;
       logoTop = '17vh';
       logoLeft = '60%';
     }
-    if (window.innerWidth < 1188) {
+    if (innerWidth < 1188) {
       logoHeight = 400;
       logoTop = '24vh';
       logoLeft = '65%';
     }
-    if (window.innerWidth < 1100) {
+    if (innerWidth < 1100) {
       logoLeft = '55%'
     }
-    if (window.innerWidth < 800) {
+    if (innerWidth < 800) {
       logoLeft = '40%'
     }
-    if (window.innerWidth < 600) {
-      logoLeft = '40%';
+    if (innerWidth < 600) {
+      logoLeft = '25%';
       logoHeight = 200;
       logoTop = '65vh';
     }
@@ -117,21 +122,20 @@ class Home extends Component {
     if (logoHeight) {
       TweenMax.to('.home_logo', .3, logoStyle)
     }
-
     let introLeft;
     let introStyle;
     let introTop;
-    if (window.innerWidth >= 1100) {
+    if (innerWidth >= 1100) {
       introLeft = 0;
-      introTop = 0;
+      introTop = -45;
     }
-    if (window.innerWidth < 1100) {
+    if (innerWidth < 1100) {
       introLeft = -50;
-      introTop = 0;
+      introTop = -45;
     }
-    if (window.innerWidth < 600) {
+    if (innerWidth < 600) {
       introLeft = -90;
-      introTop = -20;
+      introTop = -90;
     }
     introStyle = {
       left: introLeft,
@@ -200,6 +204,7 @@ class Home extends Component {
           <span className="home_button_span">{"</button>"}</span>
         </section>
         <img className="home_logo" src={Logo}/>
+        <img className="home_mobile_flip" src={Portrait}/>
       </main>
     )
   }

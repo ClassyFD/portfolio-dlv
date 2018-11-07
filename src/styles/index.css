@@ -7,9 +7,13 @@
   src: url('../fonts//timeburnernormal.ttf');
 }
 
-body {
+
+html, body {
   margin: 0;  
   overflow: hidden;
+  position: relative;
+  height: 100vh;
+  width: 100%;
 }
 h1 {
   margin: 0;
@@ -24,15 +28,21 @@ p {
   background: #252627;
   overflow: hidden;
 }
+.Home {
+  display: flex;
+}
 
 .About, .Skills, .Contact, .Home, .Projects {
   height: 100vh;
   margin-left: 70px;
   overflow: hidden;
+  max-height: 100vh;
 }
 
 @media (max-width: 1100px) {
   .About, .Skills, .Contact, .Home, .Projects {
     margin-left: 0px;
+    height: 100vh;
+    margin-top: 70px;
   }
 }

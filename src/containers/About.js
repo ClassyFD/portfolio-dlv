@@ -90,7 +90,7 @@ class About extends Component {
     }
 
     TweenMax.to('.about_intro_section', .3, textStyle);
-
+    
     let pSize;
     let pStyle;
     if (innerWidth >= 420) {
@@ -103,6 +103,7 @@ class About extends Component {
       fontSize: pSize
     }
     TweenMax.to('.about_p', .3, pStyle)
+    TweenMax.to('.about_span', .3, pStyle)
   }
 
   enterIT = (type, index) => {
@@ -146,20 +147,20 @@ class About extends Component {
     return (
       <main className={'About'}>
         <section className="about_intro_section">
-          <span className="about_body_span">{"<body>"}</span>
-            <span className="about_h1_span">{"<h1>"}</span>
+          <span className="about_body_span about_span">{"<body>"}</span>
+            <span className="about_h1_span about_span">{"<h1>"}</span>
               <aside>{introText}</aside>
-            <span className="about_h1_span">{"<h1/>"}</span>
-            <span className="about_p_span">{"<p>"}</span>
+            <span className="about_h1_span about_span">{"<h1/>"}</span>
+            <span className="about_p_span about_span">{"<p>"}</span>
               <p className="about_p">I began my code journey early 2017, at <a onMouseEnter={()=>{this.enterLink('code')}} onMouseLeave={()=>{this.leaveLink('code')}} className="about_link about_link_code" href="https://freecodecamp.org" target="_blank" rel="noopener noreferrer">freecodecamp.org</a>. I learned HTML, CSS and JavaScript basics there. I also created some of my first projects: A <a onMouseEnter={()=>{this.enterLink('poke')}} onMouseLeave={()=>{this.leaveLink('poke')}} className="about_link about_link_poke" href="https://pokedex-dlv.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Pokedex</a> and the <a onMouseEnter={()=>{this.enterLink('gol')}} onMouseLeave={()=>{this.leaveLink('gol')}} className="about_link about_link_gol" href="https://game-of-life-dlv.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Game of life.</a> They weren't perfect, but they were fun to make. It definitely set the path to pursuing a career in software development!</p>
-              <span className="about_br_span">{"<br/>"}</span>
+              <span className="about_br_span about_span">{"<br/>"}</span>
               <p className="about_p">Later that same year, I attended <a onMouseEnter={()=>{this.enterLink('dev')}} onMouseLeave={()=>{this.leaveLink('dev')}} className="about_link about_link_dev" href="https://devmountain.com" target="_blank" rel="noopener noreferrer">DevMountain</a>, a coding bootcamp. While there, I started getting into ReactJS, back end development, and database management. For my last project, I was with a group with 2 other developers, that worked with a UI/UX team to create a website for a 401(c) non-profit company.</p>
-              <span className="about_br_span">{"<br/>"}</span>
+              <span className="about_br_span about_span">{"<br/>"}</span>
               <p className="about_p">After graduating the bootcamp, I joined a small company named <a onMouseEnter={()=>{this.enterLink('vibix')}} onMouseLeave={()=>{this.leaveLink('vibix')}} className="about_link about_link_vibix" href="https://vibix-web.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Vibix</a>. We worked on developing shopify apps to automate users' daily time-consuming tasks. I was assigned to lead and develop apps for consignment, discount sheduling, and to develop the front end for their main website.</p>
-              <span className="about_br_span">{"<br/>"}</span>
+              <span className="about_br_span about_span">{"<br/>"}</span>
               <p className="about_p">I don't just code, fitness is also a big part of my life! If you would like to see more, check out my social media! {socialMedia}</p>
-            <span className="about_p_span">{"</p>"}</span>
-          <span className="about_body_span">{"</body>"}</span>
+            <span className="about_p_span about_span">{"</p>"}</span>
+          <span className="about_body_span about_span">{"</body>"}</span>
         </section>
         {/* <img alt="please flip device" className="about_mobile_flip" src={Portrait}/> */}
       </main>

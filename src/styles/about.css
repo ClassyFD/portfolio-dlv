@@ -68,6 +68,9 @@
   left: 15px;
   user-select: none;
 }
+.about_span {
+  font-size: 16px;
+}
 .about_link {
   text-decoration: underline;
   color: #59bd8e;

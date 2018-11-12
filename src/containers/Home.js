@@ -90,7 +90,7 @@ class Home extends Component {
       logoHeight = 300;
 
     }
-    if (innerWidth < 600) {
+    if (innerWidth < 740) {
       logoLeft = '55%';
       logoHeight = 200;
       logoTop = '55vh';
@@ -110,15 +110,15 @@ class Home extends Component {
     let introTop;
     if (innerWidth >= 1100) {
       introLeft = 0;
-      introTop = -45;
+      introTop = '30vh';
     }
     if (innerWidth < 1100) {
       introLeft = -50;
-      introTop = 0;
+      introTop = '20vh';
     }
-    if (innerWidth < 600) {
+    if (innerWidth < 740) {
       introLeft = -90;
-      introTop = 0;
+      introTop = '20px';
     }
     introStyle = {
       left: introLeft,

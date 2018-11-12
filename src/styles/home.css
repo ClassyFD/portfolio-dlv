@@ -2,17 +2,17 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   color: white;
   position: relative;
+  padding-left: 100px;
 }
 .home_intro_section aside {
   font-family: tbb;
-  padding-left: 100px;
   display: flex;
   flex-wrap: wrap;
   width: 400px;
   height: 48px;
+  padding-left: 15px;
 }
 .home_intro_section aside > h1 {
   position: relative;
@@ -25,7 +25,6 @@
 .home_intro_section p {
   font-family: tbb;
   font-size: 15px;
-  padding-left: 100px;
   color: #5d5e5f;
   display: flex;
   cursor: default;
@@ -40,16 +39,13 @@
   opacity: .7;
   font-family: tbb;
   display: flex;
-  justify-content: flex-end;
   cursor: default;
   user-select: none;
 }
-.home_h1_span:nth-of-type(1) {
-  width: 100px;
-}
 .home_h1_span:nth-of-type(2) {
-  width: 500px;
+  padding-left: 350px;
 }
+
 .home_p_span {
   color: #42474b;
   opacity: .7;
@@ -61,17 +57,12 @@
   opacity: .7;
   font-family: tbb;
   display: flex;
-  justify-content: flex-end;
   padding: 5px;
   cursor: default;
   user-select: none;
 }
 .home_button_span:nth-of-type(3) {
   margin-top: 20px;
-  width: 160px;
-}
-.home_button_span:nth-of-type(4) {
-  width: 170px;
 }
 .home_button {
   width: 100%;
@@ -92,7 +83,7 @@
 }
 .home_link {
   width: 150px;
-  margin-left: 120px;
+  padding-left: 15px;
 }
 .home_logo {
   position: absolute;
@@ -124,7 +115,7 @@
     text-align: center;
   }
 }
-@media(max-width: 370px) {
+@media(max-width: 420px) {
   .home_intro_section aside {
     width: 280px;
     height: auto;
@@ -144,7 +135,7 @@
     position: relative;
   }
   .home_h1_span:nth-of-type(2) {
-    width: 340px;
+    padding-left: 240px;
   }
 }
 

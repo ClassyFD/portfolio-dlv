@@ -91,7 +91,7 @@ class Home extends Component {
 
     }
     if (innerWidth < 740) {
-      logoLeft = '40%';
+      logoLeft = '45%';
       logoHeight = 200;
       logoTop = '75vh';
     }

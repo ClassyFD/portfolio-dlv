@@ -7,12 +7,12 @@
   position: relative;
   font-family: tbb;
   padding-left: 100px;
+  width: 400px;
 }
 .about_intro_section aside {
   font-family: tbb;
   display: flex;
   flex-wrap: wrap;
-  width: 400px;
   height: 48px;
 }
 .about_intro_section aside > h1 {
@@ -22,6 +22,7 @@
   font-size: 48px;
   position: relative;
   z-index: 10;
+  left: 15px;
 }
 .about_body_span {
   color: #42474b;
@@ -62,10 +63,10 @@
 }
 .about_p {
   font-family: abel;
-  width: 600px;
   font-size: 16px;
   position: relative;
   left: 15px;
+  user-select: none;
 }
 .about_link {
   text-decoration: underline;

@@ -7,6 +7,7 @@ import Portrait from '../res/portrait.png';
 import * as actions from '../redux/actions/nav.actions';
 import '../styles/home.css';
 import AnimateHOC from '../hocs/Animate';
+import { debounce } from '../utility/utility';
 
 class Home extends Component {
   constructor(props) {
@@ -56,29 +57,10 @@ class Home extends Component {
       .from('.home_button_span', 1, {opacity: 0}, '-=1');
 
     this.windowResize();
-    window.addEventListener("resize", this.debounce(this.windowResize, 50, 200));
-  }
-  
-  debounce = (cb, wait, call) => {
-    let timeout;
-    let immediate;
-    
-    return () => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        timeout = null;
-        cb();
-      }, wait);
-      if (!immediate){
-        immediate = setTimeout(()=>{
-          immediate = null;
-          cb();
-        }, call)
-      }
-    }
+    window.onresize = debounce(this.windowResize, 50, 200);
   }
 
-  windowResize() {
+  windowResize = () => {
     let logoHeight;
     let logoTop;
     let logoLeft;
@@ -104,7 +86,9 @@ class Home extends Component {
       logoLeft = '55%'
     }
     if (innerWidth < 800) {
-      logoLeft = '40%'
+      logoLeft = '60%'
+      logoHeight = 300;
+
     }
     if (innerWidth < 600) {
       logoLeft = '55%';
@@ -130,11 +114,11 @@ class Home extends Component {
     }
     if (innerWidth < 1100) {
       introLeft = -50;
-      introTop = -45;
+      introTop = 0;
     }
     if (innerWidth < 600) {
       introLeft = -90;
-      introTop = -50;
+      introTop = 0;
     }
     introStyle = {
       left: introLeft,
@@ -144,12 +128,12 @@ class Home extends Component {
     TweenMax.to('.home_intro_section', .3, introStyle);
   }
 
-  enterIT(type, index) {
+  enterIT = (type, index) => {
     const tl = new TimelineMax();
     tl.to(`.home_${type}_${index}`, .1, {color: '#59bd8e'});
     tl.to(`.home_${type}_${index}`, .3, {fontSize: '56px', color: '#59bd8e', ease: Power1.easeOut}, '-=.1');
   } 
-  leaveIT(type, index) {
+  leaveIT = (type, index) => {
     const tl = new TimelineMax();
     tl.to(`.home_${type}_${index}`, .5, {color:'#ffffff'});
     tl.to(`.home_${type}_${index}`, .5, {fontSize: '48px', ease: Power1.easeOut}, '-=.3');

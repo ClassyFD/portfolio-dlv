@@ -7,7 +7,6 @@ import { TimelineMax } from "gsap";
 const AnimateHOC = () => {
   return (BaseComponent) => {
     class Animate extends Component {
-
       componentWillReceiveProps = (props) => {
         const tl = new TimelineMax();
         const { animatedComp } = props;
@@ -22,6 +21,10 @@ const AnimateHOC = () => {
         } else {
           tl.fromTo('.animate-hoc', .5, {opacity: 0}, {opacity: 1});
         }
+      }
+
+      componentWillUnmount = () => {
+        window.onresize = null
       }
 
       render = () => {

@@ -72,14 +72,14 @@ class About extends Component {
       textLeft = 0;
       textTop = 70;
       textPadding = 0;
-      textWidth = '370px';
+      textWidth = '350px';
       textMargin = '0 auto'
     }
     if (innerWidth < 420) {
       textLeft = 0;
       textTop = 70;
       textPadding = 0;
-      textWidth = '300px';
+      textWidth = '80%';
       textMargin = '0 auto'
     }
     textStyle = {

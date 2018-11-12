@@ -100,7 +100,7 @@
   }
   .about_mobile_profile {
     display: flex;
-    height: 36px;
+    height: 30px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 1px black;
     position: relative;

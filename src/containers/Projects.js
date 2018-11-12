@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/projects.css'
 import * as actions from '../redux/actions';
+import AnimateHOC from '../hocs/Animate';
 
 class Projects extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class Projects extends Component {
   render() {
     return (
       <main className={'Projects'}>
-        test
+        Projects
       </main>
     )
   }
@@ -34,7 +35,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+const animatedProject = AnimateHOC()(Projects);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Projects);
+)(animatedProject);

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/contact.css'
 import * as actions from '../redux/actions';
+import AnimateHOC from '../hocs/Animate';
 
 class Contact extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class Contact extends Component {
   render() {
     return (
       <main className={'Contact'}>
-        test
+        Contact
       </main>
     )
   }
@@ -34,7 +35,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+const animatedContact = AnimateHOC()(Contact);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Contact);
+)(animatedContact);

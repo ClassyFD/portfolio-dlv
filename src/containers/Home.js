@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { TweenMax, TimelineMax, Power1 } from 'gsap';
 import { Link } from 'react-router-dom';
 import FLogo from '../res/f_logo.png'
-import Portrait from '../res/portrait.png';
 import * as actions from '../redux/actions/nav.actions';
 import '../styles/home.css';
 import AnimateHOC from '../hocs/Animate';
@@ -36,7 +35,7 @@ class Home extends Component {
       .staggerTo('.home_it1', .1, {color: '#59bd8e'}, .05, '-=1.4')
       .staggerTo('.home_it1', .3, {fontSize: largeFont, ease: Power1.easeOut}, .05, '-=1.4')
       .staggerTo('.home_it1', .5, {color:'#ffffff'}, .03, '-=1')
-      .staggerTo('.home_it1', .5, {fontSize: smallFont, ease: Power1.easeOut}, .03, '-=.8');
+      .staggerTo('.home_it1', .5, {fontSize: smallFont, ease: Power1.easeOut}, .03, '-=1');
       
     tl.staggerFrom('.home_it2', 1, {opacity: 0}, .05, '-=.6')
       .staggerTo('.home_it2', .1, {color: '#59bd8e'}, .05, '-=1.6')
@@ -47,8 +46,8 @@ class Home extends Component {
     tl.staggerFrom('.home_it3', 1, {opacity: 0}, .05, '-=.8')
       .staggerTo('.home_it3', .1, {color: '#59bd8e'}, .05, '-=1.9')
       .staggerTo('.home_it3', .3, {fontSize: largeFont, ease: Power1.easeOut}, .05, '-=1.9')
-      .staggerTo('.home_it3', .5, {color:'#ffffff'}, .03, '-=1.5')
-      .staggerTo('.home_it3', .5, {fontSize: smallFont, ease: Power1.easeOut}, .04, '-=1.7');
+      .staggerTo('.home_it3', .5, {color:'#ffffff'}, .03, '-=1.4')
+      .staggerTo('.home_it3', .5, {fontSize: smallFont, ease: Power1.easeOut}, .04, '-=1.4');
 
     ptl.from('.home_p', 1, {opacity: 0}, '+=2');
     sptl.from('.home_h1_span', 1, {opacity: 0}, '+=2');
@@ -62,43 +61,35 @@ class Home extends Component {
 
   windowResize = () => {
     let logoHeight;
-    let logoTop;
     let logoLeft;
     let ease = Power1.easeOut;
     let logoStyle;
     const innerWidth = window.innerWidth;
     if (innerWidth >= 1290) {
       logoHeight = 600;
-      logoTop = '10vh';
       logoLeft = '55%';
     }
     if (innerWidth < 1290) {
       logoHeight = 500;
-      logoTop = '17vh';
-      logoLeft = '60%';
+      logoLeft = '55%';
     }
     if (innerWidth < 1188) {
       logoHeight = 400;
-      logoTop = '24vh';
+      logoLeft = '55%';
+    }
+    if (innerWidth < 1000) {
+      logoLeft = '60%';
+    }
+    if (innerWidth < 850) {
       logoLeft = '65%';
-    }
-    if (innerWidth < 1100) {
-      logoLeft = '55%'
-    }
-    if (innerWidth < 800) {
-      logoLeft = '60%'
       logoHeight = 300;
-
     }
     if (innerWidth < 740) {
-      logoLeft = '45%';
       logoHeight = 200;
-      logoTop = '75vh';
     }
 
     logoStyle = {
       height: logoHeight,
-      top: logoTop,
       left: logoLeft,
       ease
     }
@@ -107,22 +98,30 @@ class Home extends Component {
     }
     let introLeft;
     let introStyle;
-    let introTop;
+    let introPadding
     if (innerWidth >= 1100) {
       introLeft = 0;
-      introTop = '30vh';
+      introPadding = '0 0 0 100px'
     }
     if (innerWidth < 1100) {
       introLeft = -50;
-      introTop = '20vh';
+      introPadding = '0 0 0 100px'
     }
     if (innerWidth < 740) {
       introLeft = -90;
-      introTop = '90px';
+      introPadding = '0 0 0 100px'
+    }
+    if (innerWidth <= 600) {
+      introLeft = 0;
+      introPadding = '0 0 0 50px'
+    }
+    if (innerWidth < 480) {
+      introLeft = 0;
+      introPadding = '0 0 0 0px'
     }
     introStyle = {
       left: introLeft,
-      marginTop: introTop,
+      padding: introPadding,
       ease,
     }
     TweenMax.to('.home_intro_section', .3, introStyle);
@@ -187,7 +186,6 @@ class Home extends Component {
           <span className="home_button_span">{"</button>"}</span>
         </section>
         <img alt="home logo" className="home_logo" src={FLogo}/>
-        <img alt="please flip device" className="home_mobile_flip" src={Portrait}/>
       </main>
     )
   }

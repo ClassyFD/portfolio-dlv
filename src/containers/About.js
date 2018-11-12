@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/about.css'
 import * as actions from '../redux/actions/nav.actions';
-import Portrait from '../res/portrait.png';
 import Profile from '../res/profile_picture.png';
 import AnimateHOC from '../hocs/Animate';
 import { TimelineMax, Power1, TweenMax } from 'gsap';
@@ -20,13 +19,22 @@ class About extends Component {
     this.props.setMountedComp('user');
   }
   componentDidMount = () => {
-    const tl = new TimelineMax();
+    const tl = new TimelineMax(); // heading
+    
     this.windowResize(true);
     tl.staggerFrom('.about_it', 1, {opacity: 0}, .05, '+=.2')
-      .staggerTo('.about_it', .1, {color: '#59bd8e'}, .05, '-=1.3')
-      .staggerTo('.about_it', .3, {fontSize: '56px', ease: Power1.easeOut}, .05, '-=1.3')
-      .staggerTo('.about_it', .5, {color:'#ffffff'}, .03, '-=1')
+    .staggerTo('.about_it', .1, {color: '#59bd8e'}, .05, '-=1.3')
+    .staggerTo('.about_it', .3, {fontSize: '56px', ease: Power1.easeOut}, .05, '-=1.3')
+    .staggerTo('.about_it', .5, {color:'#ffffff'}, .03, '-=1')
       .staggerTo('.about_it', .5, {fontSize: '48px', ease: Power1.easeOut}, .03, '-=.8');
+      
+    const ttl = new TimelineMax(); // text
+    ttl.fromTo('.about_p', 1, {opacity:0}, {opacity:1}, '+=.2')
+      .fromTo('.about_span', 1, {opacity:0}, {opacity:1}, '-=1');
+    
+    const ptl = new TimelineMax(); // picture
+    ptl.fromTo('.about_profile', 1, {opacity:0}, {opacity:1}, '+=.2')
+
     window.onresize = debounce(this.windowResize, 50, 200);
   }
 
@@ -198,7 +206,6 @@ class About extends Component {
           <span className="about_body_span about_span">{"</body>"}</span>
         </section>
         <img className="about_profile" src={Profile}/>
-        {/* <img alt="please flip device" className="about_mobile_flip" src={Portrait}/> */}
       </main>
     )
   }

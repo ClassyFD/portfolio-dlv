@@ -12,12 +12,12 @@
   display: flex;
   flex-wrap: wrap;
   width: 400px;
-  min-height: 48px;
+  height: 48px;
 }
 .home_intro_section aside > h1 {
   position: relative;
   user-select: none;
-  height: 48px;
+  line-height: 48px;
   font-size: 48px;
   position: relative;
   z-index: 10;
@@ -67,7 +67,7 @@
   user-select: none;
 }
 .home_button_span:nth-of-type(3) {
-  margin-top: 30px;
+  margin-top: 20px;
   width: 160px;
 }
 .home_button_span:nth-of-type(4) {
@@ -127,12 +127,13 @@
 @media(max-width: 370px) {
   .home_intro_section aside {
     width: 280px;
+    height: auto;
   }
   .home_it2_3 {
     flex-basis: 190px;
   }
   .home_it3_3 {
-    flex-basis: 150px;
+    flex-basis: 142px;
   }
   .home_intro_section p {
     width: 200px;

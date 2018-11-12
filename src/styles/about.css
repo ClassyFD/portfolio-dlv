@@ -1,0 +1,78 @@
+.about_intro_section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  position: relative;
+  font-family: tbb;
+  padding-left: 100px;
+}
+.about_intro_section aside {
+  font-family: tbb;
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 48px;
+}
+.about_intro_section aside > h1 {
+  position: relative;
+  user-select: none;
+  line-height: 48px;
+  font-size: 48px;
+  position: relative;
+  z-index: 10;
+}
+.about_body_span {
+  color: #42474b;
+  opacity: .7;
+  display: flex;
+  cursor: default;
+  user-select: none;
+  position: relative;
+  left: -15px;
+  padding: 10px 0 10px 0;
+}
+.about_br_span {
+  color: #42474b;
+  opacity: .7;
+  display: flex;
+  cursor: default;
+  user-select: none;
+  position: relative;
+  left: 10px;
+  padding: 5px;
+}
+.about_p_span {
+  color: #42474b;
+  opacity: .7;
+  display: flex;
+  cursor: default;
+  user-select: none;
+  position: relative;
+  padding: 5px 0 5px 0;
+}
+.about_h1_span {
+  color: #42474b;
+  opacity: .7;
+  display: flex;
+  cursor: default;
+  user-select: none;
+  position: relative;
+}
+.about_p {
+  font-family: abel;
+  width: 600px;
+  font-size: 16px;
+  position: relative;
+  left: 15px;
+}
+.about_link {
+  text-decoration: underline;
+  color: #59bd8e;
+}
+.about_social_media {
+  text-decoration: none;
+  color: #59bd8e;
+  padding-left: 5px;
+}

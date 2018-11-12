@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { TweenMax, TimelineMax, Power1 } from 'gsap';
 import { Link } from 'react-router-dom';
-import Logo from '../res/logo.png';
+import FLogo from '../res/f_logo.png'
 import Portrait from '../res/portrait.png';
-import * as actions from '../redux/actions';
+import * as actions from '../redux/actions/nav.actions';
 import '../styles/home.css';
+import AnimateHOC from '../hocs/Animate';
 
 class Home extends Component {
   constructor(props) {
@@ -78,14 +79,12 @@ class Home extends Component {
   }
 
   windowResize() {
-    const tl = new TimelineMax();
     let logoHeight;
     let logoTop;
     let logoLeft;
     let ease = Power1.easeOut;
     let logoStyle;
     const innerWidth = window.innerWidth;
-    const innerHeight = window.innerHeight;
     if (innerWidth >= 1290) {
       logoHeight = 600;
       logoTop = '10vh';
@@ -135,7 +134,7 @@ class Home extends Component {
     }
     if (innerWidth < 600) {
       introLeft = -90;
-      introTop = -90;
+      introTop = -50;
     }
     introStyle = {
       left: introLeft,
@@ -163,26 +162,26 @@ class Home extends Component {
   }
 
   render = () => {
-    let { state } = this;
+    const { state } = this;
     let introText1;
     let introText2;
     let introText3;
     introText1 = state.introText1.split('');
     introText1 = introText1.map((el, i)=>{
       return (
-        <h1 onMouseEnter={()=>{this.enterIT('it1', i)}} onMouseLeave={()=>{this.leaveIT('it1', i)}} className={` home_it home_it1 home_it1_${i}`}>{el}</h1>
+        <h1 key={i} onMouseEnter={()=>{this.enterIT('it1', i)}} onMouseLeave={()=>{this.leaveIT('it1', i)}} className={` home_it home_it1 home_it1_${i}`}>{el}</h1>
       )
     })
     introText2 = state.introText2.split('');
     introText2 = introText2.map((el, i)=>{
       return (
-        <h1 onMouseEnter={()=>{this.enterIT('it2', i)}} onMouseLeave={()=>{this.leaveIT('it2', i)}} className={` home_it home_it2 home_it2_${i}`}>{el}{el==='m' ? '\xa0':''}</h1>
+        <h1 key={i} onMouseEnter={()=>{this.enterIT('it2', i)}} onMouseLeave={()=>{this.leaveIT('it2', i)}} className={` home_it home_it2 home_it2_${i}`}>{el}{el==='m' ? '\xa0':''}</h1>
       )
     })
     introText3 = state.introText3.split('');
     introText3 = introText3.map((el, i)=>{
       return (
-        <h1 onMouseEnter={()=>{this.enterIT('it3', i)}} onMouseLeave={()=>{this.leaveIT('it3', i)}} className={` home_it home_it3 home_it3_${i}`}>{el}{el==='m' || el==='k' || el==='b' ? '\xa0':''}</h1>
+        <h1 key={i} onMouseEnter={()=>{this.enterIT('it3', i)}} onMouseLeave={()=>{this.leaveIT('it3', i)}} className={` home_it home_it3 home_it3_${i}`}>{el}{el==='m' || el==='k' || el==='b' ? '\xa0':''}</h1>
       )
     })
 
@@ -196,31 +195,45 @@ class Home extends Component {
           <span className="home_h1_span">{"<h1/>"}</span>
           <p className="home_p">
             <span className="home_p_span">{"<p>"}</span>
-            &nbsp; ReactJS / NodeJS / Fitness & music enthusiast &nbsp;
+            &nbsp; ReactJS / NodeJS / Responsive web design &nbsp;
             <span className="home_p_span">{"</p>"}</span>
           </p>
           <span className="home_button_span">{"<button>"}</span>
           <Link className="home_link" to="/contact"><button className="home_button" onMouseEnter={this.enterButton} onMouseLeave={this.leaveButton}>C O N T A C T  &nbsp;&nbsp; M E</button></Link>
           <span className="home_button_span">{"</button>"}</span>
         </section>
-        <img className="home_logo" src={Logo}/>
-        <img className="home_mobile_flip" src={Portrait}/>
+        <img alt="home logo" className="home_logo" src={FLogo}/>
+        <img alt="please flip device" className="home_mobile_flip" src={Portrait}/>
       </main>
     )
   }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = () => {
   return {}
 }
 const mapDispatchToProps = (dispatch) => {
   return {
     setMountedComp: (value) => {
-      dispatch({type:actions.SET_MOUNTED_COMP, value});
+      dispatch({
+        type: actions.SET_MOUNTED_COMP, 
+        value
+      });
+    },
+    setAnimatedComp: (route) => {
+      dispatch({
+        type: actions.SET_ANIMATED_COMP,
+        animatedComp: {
+          status: false,
+          route
+        },
+      })
     }
   }
 }
 
+const AnimatedHome = AnimateHOC()(Home);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home);
+)(AnimatedHome);

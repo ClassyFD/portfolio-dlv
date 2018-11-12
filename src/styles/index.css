@@ -4,9 +4,12 @@
 }
 @font-face {
   font-family: 'tbr';
-  src: url('../fonts//timeburnernormal.ttf');
+  src: url('../fonts/timeburnernormal.ttf');
 }
-
+@font-face {
+  font-family: 'abel';
+  src: url('../fonts/abel-regular.ttf');
+}
 
 html, body {
   margin: 0;  
@@ -25,7 +28,7 @@ p {
 .App {
   width: 100%;
   height: 100vh;
-  background: #252627;
+  background: #2c2d2e;
   overflow: hidden;
 }
 .Home {
@@ -35,8 +38,12 @@ p {
 .About, .Skills, .Contact, .Home, .Projects {
   height: 100vh;
   margin-left: 70px;
-  overflow: hidden;
   max-height: 100vh;
+}
+
+.animate-hoc {
+  position: relative;
+  background: #252627;
 }
 
 @media (max-width: 1100px) {

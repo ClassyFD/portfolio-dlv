@@ -34,15 +34,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90px;
+  height: 70px;
   color: white;
   font-family: tbb;
   cursor: pointer;
   user-select: none;
   background: black;
-}
-.nav_icon p {
-  font-size: 12px;
 }
 
 .nav_buttons {

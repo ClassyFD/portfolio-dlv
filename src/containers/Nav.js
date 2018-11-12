@@ -3,6 +3,7 @@ import Logo from '../res/logo.png';
 import { TweenMax } from 'gsap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import * as actions from '../redux/actions/nav.actions';
 import '../styles/nav.css'
 
 class Nav extends Component {
@@ -61,72 +62,76 @@ class Nav extends Component {
     })
   }
 
+  animateComp = (e, route) => {
+    e.preventDefault();
+    this.props.setAnimatedComp(route);
+  }
+
   render = () => {
     return (
       <main className={'Nav'}>
-        <Link className="nav_link" to='/'>
+        <Link onClick={(e)=>this.animateComp(e, '/')} className="nav_link" to='/'>
           <section className="nav_icon">
-            <img height={45} src={Logo} alt="profile logo"/>
-            <p>Fernando</p>
+            <img height={60} src={Logo} alt="profile logo"/>
           </section>
         </Link>
         <section className="nav_buttons">
-          <Link className="nav_link" to='/'>
+          <Link onClick={(e)=>this.animateComp(e, '/')} className="nav_link" to='/'>
             <i onMouseEnter={()=>{this.enterNavButtons('home')}} onMouseLeave={()=>{this.leaveNavButtons('home')}} className="fas fa-lg fa-home">
               <p className="p-home">HOME</p>
             </i>
           </Link>
-          <Link className="nav_link" to='/about'>
+          <Link onClick={(e)=>this.animateComp(e, '/about')} className="nav_link" to='/about'>
             <i onMouseEnter={()=>{this.enterNavButtons('user')}} onMouseLeave={()=>{this.leaveNavButtons('user')}} className="fas fa-lg fa-user">
               <p className="p-user">ABOUT</p>
             </i>
           </Link>
-          <Link className="nav_link" to='/skills'>
+          <Link onClick={(e)=>this.animateComp(e, '/skills')} className="nav_link" to='/skills'>
             <i onMouseEnter={()=>{this.enterNavButtons('cog')}} onMouseLeave={()=>{this.leaveNavButtons('cog')}} className="fas fa-lg fa-cog">
               <p className="p-cog">SKILLS</p>
             </i>
           </Link>
-          <Link className="nav_link" to='/projects'>
+          <Link onClick={(e)=>this.animateComp(e, '/projects')} className="nav_link" to='/projects'>
             <i onMouseEnter={()=>{this.enterNavButtons('eye')}} onMouseLeave={()=>{this.leaveNavButtons('eye')}} className="fas fa-lg fa-eye">
               <p className="p-eye">PROJECTS</p>
             </i>
           </Link>
-          <Link className="nav_link" to='/contact'>
+          <Link onClick={(e)=>this.animateComp(e, '/contact')} className="nav_link" to='/contact'>
             <i onMouseEnter={()=>{this.enterNavButtons('envelope')}} onMouseLeave={()=>{this.leaveNavButtons('envelope')}} className="fas fa-lg fa-envelope">
               <p className="p-envelope">CONTACT</p>
             </i>
           </Link>
         </section>
         <section className="nav_social_media">
-          <a href="https://www.linkedin.com/in/fernandodlv" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('linkedin', true)}} onMouseLeave={()=>{this.leaveNavButtons('linkedin', true)}} className="fab fa-linkedin"/></a>
-          <a href="https://www.facebook.com/fernandodlv32" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('facebook', true)}} onMouseLeave={()=>{this.leaveNavButtons('facebook', true)}} className="fab fa-facebook"/></a>
-          <a href="https://www.instagram.com/f.dlv" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('instagram', true)}} onMouseLeave={()=>{this.leaveNavButtons('instagram', true)}} className="fab fa-instagram"/></a>
+          <a href="https://www.linkedin.com/in/fernandodlv" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('linkedin-nav', true)}} onMouseLeave={()=>{this.leaveNavButtons('linkedin-nav', true)}} className="fab fa-linkedin fa-linkedin-nav"/></a>
+          <a href="https://www.facebook.com/fernandodlv32" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('facebook-nav', true)}} onMouseLeave={()=>{this.leaveNavButtons('facebook-nav', true)}} className="fab fa-facebook fa-facebook-nav"/></a>
+          <a href="https://www.instagram.com/f.dlv" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('instagram-nav', true)}} onMouseLeave={()=>{this.leaveNavButtons('instagram-nav', true)}} className="fab fa-instagram fa-instagram-nav"/></a>
         </section>
         <section className="nav_mobile">
           <i onMouseEnter={this.enterMobileNav} onMouseLeave={this.leaveMobileNav} onClick={this.toggleMobileNav} className="fas fa-2x fa-bars"/>
         </section>
         <section className="mobile_nav_buttons">
-          <Link className="nav_link" to='/'>
+          <Link onClick={(e)=>this.animateComp(e, '/')} className="nav_link" to='/'>
             <i onMouseEnter={()=>{this.enterNavButtons('home')}} onMouseLeave={()=>{this.leaveNavButtons('home')}} className="fas fa-lg fa-home">
               <p className="p-home">HOME</p>
             </i>
           </Link>
-          <Link className="nav_link" to='/about'>
+          <Link onClick={(e)=>this.animateComp(e, '/about')} className="nav_link" to='/about'>
             <i onMouseEnter={()=>{this.enterNavButtons('user')}} onMouseLeave={()=>{this.leaveNavButtons('user')}} className="fas fa-lg fa-user">
               <p className="p-user">ABOUT</p>
             </i>
           </Link>
-          <Link className="nav_link" to='/skills'>
+          <Link onClick={(e)=>this.animateComp(e, '/skills')} className="nav_link" to='/skills'>
             <i onMouseEnter={()=>{this.enterNavButtons('cog')}} onMouseLeave={()=>{this.leaveNavButtons('cog')}} className="fas fa-lg fa-cog">
               <p className="p-cog">SKILLS</p>
             </i>
           </Link>
-          <Link className="nav_link" to='/projects'>
+          <Link onClick={(e)=>this.animateComp(e, '/projects')} className="nav_link" to='/projects'>
             <i onMouseEnter={()=>{this.enterNavButtons('eye')}} onMouseLeave={()=>{this.leaveNavButtons('eye')}} className="fas fa-lg fa-eye">
               <p className="p-eye">PROJECTS</p>
             </i>
           </Link>
-          <Link className="nav_link" to='/contact'>
+          <Link onClick={(e)=>this.animateComp(e, '/contact')} className="nav_link" to='/contact'>
             <i onMouseEnter={()=>{this.enterNavButtons('envelope')}} onMouseLeave={()=>{this.leaveNavButtons('envelope')}} className="fas fa-lg fa-envelope">
               <p className="p-envelope">CONTACT</p>
             </i>
@@ -142,7 +147,19 @@ const mapStateToProps = (state) => {
     comp: state.nav.comp
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setAnimatedComp: (route) => dispatch({
+      type: actions.SET_ANIMATED_COMP,
+      value: {
+        status: true,
+        route
+      }
+    })
+  }
+}
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps,
 )(Nav);

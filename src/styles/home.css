@@ -1,10 +1,10 @@
 .home_intro_section {
-  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   color: white;
   position: relative;
   padding-left: 100px;
+  min-height: 100vh;
 }
 .home_intro_section aside {
   font-family: tbb;

@@ -6,7 +6,8 @@
   font-family: tbb;
   padding-left: 100px;
   width: 600px;
-  height: auto;
+  height: 700px;
+  min-height: 100vh;
 }
 .about_intro_section aside {
   font-family: tbb;

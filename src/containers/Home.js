@@ -118,11 +118,11 @@ class Home extends Component {
     }
     if (innerWidth < 740) {
       introLeft = -90;
-      introTop = '20px';
+      introTop = '90px';
     }
     introStyle = {
       left: introLeft,
-      top: introTop,
+      marginTop: introTop,
       ease,
     }
     TweenMax.to('.home_intro_section', .3, introStyle);

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../styles/about.css'
 import * as actions from '../redux/actions/nav.actions';
 import Portrait from '../res/portrait.png';
+import Profile from '../res/profile_picture.png';
 import AnimateHOC from '../hocs/Animate';
 import { TimelineMax, Power1, TweenMax } from 'gsap';
 import { debounce } from '../utility/utility';
@@ -20,16 +21,16 @@ class About extends Component {
   }
   componentDidMount = () => {
     const tl = new TimelineMax();
+    this.windowResize(true);
     tl.staggerFrom('.about_it', 1, {opacity: 0}, .05, '+=.2')
       .staggerTo('.about_it', .1, {color: '#59bd8e'}, .05, '-=1.3')
       .staggerTo('.about_it', .3, {fontSize: '56px', ease: Power1.easeOut}, .05, '-=1.3')
       .staggerTo('.about_it', .5, {color:'#ffffff'}, .03, '-=1')
       .staggerTo('.about_it', .5, {fontSize: '48px', ease: Power1.easeOut}, .03, '-=.8');
-      this.windowResize();
     window.onresize = debounce(this.windowResize, 50, 200);
   }
 
-  windowResize = () => {
+  windowResize = (immediate) => {
     let ease = Power1.easeOut;
     let textLeft;
     let textTop;
@@ -37,6 +38,7 @@ class About extends Component {
     let textMargin;
     let textWidth;
     let textStyle;
+    let time = immediate? 0 : .3;
     const innerWidth = window.innerWidth;
     if (innerWidth > 1100) {
       textLeft = 0;
@@ -47,49 +49,49 @@ class About extends Component {
     }
     if (innerWidth <= 1100) {
       textLeft = 0;
-      textTop = 0;
+      textTop = 70;
       textPadding = '0 0 0 20px';
       textWidth = '600px';
       textMargin = 0;
     }
     if (innerWidth < 1000) {
       textLeft = 0;
-      textTop = 0;
+      textTop = 70;
       textPadding = 0;
       textWidth = '500px';
       textMargin = '0 auto'
     }
     if (innerWidth < 700) {
       textLeft = 0;
-      textTop = 0;
+      textTop = 70;
       textPadding = 0;
       textWidth = '400px';
       textMargin = '0 auto'
     }
     if (innerWidth < 500) {
       textLeft = 0;
-      textTop = 0;
+      textTop = 70;
       textPadding = 0;
       textWidth = '350px';
       textMargin = '0 auto'
     }
     if (innerWidth < 420) {
       textLeft = 0;
-      textTop = 0;
+      textTop = 70;
       textPadding = 0;
       textWidth = '280px';
       textMargin = '0 auto'
     }
     textStyle = {
       left: textLeft,
-      top: textTop,
+      marginTop: textTop,
       padding: textPadding,
       width: textWidth,
       margin: textMargin,
       ease,
     }
 
-    TweenMax.to('.about_intro_section', .3, textStyle);
+    TweenMax.to('.about_intro_section', time, textStyle);
     
     let pSize;
     let pStyle;
@@ -102,8 +104,38 @@ class About extends Component {
     pStyle = {
       fontSize: pSize
     }
-    TweenMax.to('.about_p', .3, pStyle)
-    TweenMax.to('.about_span', .3, pStyle)
+    TweenMax.to('.about_p', time, pStyle);
+    TweenMax.to('.about_span', time, pStyle);
+
+    let imageHeight;
+    let imageWidth;
+    let imageLeft;
+
+    if (innerWidth >= 1250) {
+      imageHeight = 400;
+      imageWidth = 400;
+      imageLeft = '5%';
+    }
+
+    if (innerWidth < 1250) {
+      imageHeight = 300;
+      imageWidth = 300;
+      imageLeft = '2%';
+    }
+    if (innerWidth < 1100) {
+      imageHeight = 300;
+      imageWidth = 300;
+      imageLeft = '5%';
+    }
+
+    let imageStyle = {
+      height: imageHeight,
+      width: imageWidth,
+      left: imageLeft,
+      ease,
+    };
+
+    TweenMax.to('.about_profile', time, imageStyle);
   }
 
   enterIT = (type, index) => {
@@ -149,7 +181,10 @@ class About extends Component {
         <section className="about_intro_section">
           <span className="about_body_span about_span">{"<body>"}</span>
             <span className="about_h1_span about_span">{"<h1>"}</span>
-              <aside>{introText}</aside>
+              <aside>
+              {introText}
+              <img src={Profile} className="about_mobile_profile"/>
+              </aside>
             <span className="about_h1_span about_span">{"<h1/>"}</span>
             <span className="about_p_span about_span">{"<p>"}</span>
               <p className="about_p">I began my code journey early 2017, at <a onMouseEnter={()=>{this.enterLink('code')}} onMouseLeave={()=>{this.leaveLink('code')}} className="about_link about_link_code" href="https://freecodecamp.org" target="_blank" rel="noopener noreferrer">freecodecamp.org</a>. I learned HTML, CSS and JavaScript basics there. I also created some of my first projects: A <a onMouseEnter={()=>{this.enterLink('poke')}} onMouseLeave={()=>{this.leaveLink('poke')}} className="about_link about_link_poke" href="https://pokedex-dlv.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Pokedex</a> and the <a onMouseEnter={()=>{this.enterLink('gol')}} onMouseLeave={()=>{this.leaveLink('gol')}} className="about_link about_link_gol" href="https://game-of-life-dlv.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Game of life.</a> They weren't perfect, but they were fun to make. It definitely set the path to pursuing a career in software development!</p>
@@ -162,6 +197,7 @@ class About extends Component {
             <span className="about_p_span about_span">{"</p>"}</span>
           <span className="about_body_span about_span">{"</body>"}</span>
         </section>
+        <img className="about_profile" src={Profile}/>
         {/* <img alt="please flip device" className="about_mobile_flip" src={Portrait}/> */}
       </main>
     )

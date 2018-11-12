@@ -1,19 +1,19 @@
 .about_intro_section {
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   color: white;
   position: relative;
   font-family: tbb;
   padding-left: 100px;
   width: 600px;
+  height: auto;
 }
 .about_intro_section aside {
   font-family: tbb;
   display: flex;
   flex-wrap: wrap;
   height: 48px;
+  align-items: center;
 }
 .about_intro_section aside > h1 {
   position: relative;
@@ -79,4 +79,30 @@
   text-decoration: none;
   color: #59bd8e;
   padding-left: 5px;
+}
+.about_profile {
+  width: 400px;
+  height: 400px; 
+  display: flex;
+  align-self: center;
+  position: relative;
+  left: 5%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 2px black;
+}
+.about_mobile_profile {
+  display: none;
+}
+@media (max-width:1000px) {
+  .about_profile {
+    display: none;
+  }
+  .about_mobile_profile {
+    display: flex;
+    height: 36px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 1px black;
+    position: relative;
+    left: 20px;
+  }
 }

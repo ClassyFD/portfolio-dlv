@@ -1,5 +1,5 @@
 .home_intro_section {
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   color: white;
@@ -96,11 +96,11 @@
 .home_mobile_flip {
   display: none;
 }
-@media (max-width: 1100px) {
+/* @media (max-width: 1100px) {
   .home_intro_section {
     top: 70px;
   }
-}
+} */
 @media (max-width:600px) {
   .home_h1_span:nth-of-type(1) {
     width: 120px;

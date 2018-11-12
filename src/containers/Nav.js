@@ -65,6 +65,9 @@ class Nav extends Component {
   animateComp = (e, route) => {
     e.preventDefault();
     this.props.setAnimatedComp(route);
+    if (window.innerWidth <= 500) {
+      this.toggleMobileNav();
+    }
   }
 
   render = () => {

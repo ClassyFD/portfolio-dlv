@@ -92,7 +92,7 @@
   align-self: center;
   transform: rotate(10deg);
   z-index: 5;
-  height: 600px;
+  height: 500px;
   position: absolute;
 }
 .home_mobile_flip {
@@ -121,19 +121,19 @@
     text-align: center;
   }
 }
-@media(max-width: 400px) {
+@media(max-width: 385px) {
   .home_intro_section {
     height: 650px;
   }
   .home_intro_section aside {
-    width: 280px;
+    width: 300px;
     height: auto;
   }
   .home_it2_3 {
-    flex-basis: 190px;
+    flex-basis: 210px;
   }
   .home_it3_3 {
-    flex-basis: 142px;
+    flex-basis: 162px;
   }
   .home_intro_section p {
     width: 200px;

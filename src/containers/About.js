@@ -34,6 +34,7 @@ class About extends Component {
     
     const ptl = new TimelineMax(); // picture
     ptl.fromTo('.about_profile', 1, {opacity:0}, {opacity:1}, '+=.2')
+      .fromTo('.about_profile_mobile', 1, {opacity:0}, {opacity:1}, '-=1')
 
     window.onresize = debounce(this.windowResize, 50, 200);
   }
@@ -191,17 +192,17 @@ class About extends Component {
             <span className="about_h1_span about_span">{"<h1>"}</span>
               <aside>
               {introText}
-              <img src={Profile} className="about_mobile_profile"/>
+              <img src={Profile} className="about_profile_mobile"/>
               </aside>
             <span className="about_h1_span about_span">{"<h1/>"}</span>
             <span className="about_p_span about_span">{"<p>"}</span>
-              <p className="about_p">I began my code journey early 2017, at <a onMouseEnter={()=>{this.enterLink('code')}} onMouseLeave={()=>{this.leaveLink('code')}} className="about_link about_link_code" href="https://freecodecamp.org" target="_blank" rel="noopener noreferrer">freecodecamp.org</a>. I learned HTML, CSS and JavaScript basics there. I also created some of my first projects: A <a onMouseEnter={()=>{this.enterLink('poke')}} onMouseLeave={()=>{this.leaveLink('poke')}} className="about_link about_link_poke" href="https://pokedex-dlv.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Pokedex</a> and the <a onMouseEnter={()=>{this.enterLink('gol')}} onMouseLeave={()=>{this.leaveLink('gol')}} className="about_link about_link_gol" href="https://game-of-life-dlv.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Game of life.</a> They weren't perfect, but they were fun to make. It definitely set the path to pursuing a career in software development!</p>
+              <p className="about_p">I began learning to code in 2017, at <a onMouseEnter={()=>{this.enterLink('code')}} onMouseLeave={()=>{this.leaveLink('code')}} className="about_link about_link_code" href="https://freecodecamp.org" target="_blank" rel="noopener noreferrer">freecodecamp.org</a>. There, I taught myself the basics of HTML, CSS and JavaScript. I also created some of my first projects: A <a onMouseEnter={()=>{this.enterLink('poke')}} onMouseLeave={()=>{this.leaveLink('poke')}} className="about_link about_link_poke" href="https://pokedex-dlv.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Pokedex</a> and the <a onMouseEnter={()=>{this.enterLink('gol')}} onMouseLeave={()=>{this.leaveLink('gol')}} className="about_link about_link_gol" href="https://game-of-life-dlv.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Game of life.</a> They weren't perfect, but they were fun to make. It definitely set the path to pursuing a career in software development!</p>
               <span className="about_br_span about_span">{"<br/>"}</span>
-              <p className="about_p">Later that same year, I attended <a onMouseEnter={()=>{this.enterLink('dev')}} onMouseLeave={()=>{this.leaveLink('dev')}} className="about_link about_link_dev" href="https://devmountain.com" target="_blank" rel="noopener noreferrer">DevMountain</a>, a coding bootcamp. While there, I started getting into ReactJS, back end development, and database management. For my last project, I was with a group with 2 other developers, that worked with a UI/UX team to create a website for a 401(c) non-profit company.</p>
+              <p className="about_p">Later that same year, I attended <a onMouseEnter={()=>{this.enterLink('dev')}} onMouseLeave={()=>{this.leaveLink('dev')}} className="about_link about_link_dev" href="https://devmountain.com" target="_blank" rel="noopener noreferrer">DevMountain</a>, an intense 13 week coding bootcamp. While there, I started learning fullstack web development, specifically with ReactJS. I spent 900+ hours learning new technologies and developing personal projects.</p>
               <span className="about_br_span about_span">{"<br/>"}</span>
-              <p className="about_p">After graduating the bootcamp, I joined a small company named <a onMouseEnter={()=>{this.enterLink('vibix')}} onMouseLeave={()=>{this.leaveLink('vibix')}} className="about_link about_link_vibix" href="https://vibix-web.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Vibix</a>. We worked on developing shopify apps to automate users' daily time-consuming tasks. I was assigned to lead and develop apps for consignment, discount sheduling, and to develop the front end for their main website.</p>
+              <p className="about_p">After graduating from the bootcamp and receiving my Javascript Web Development <a onMouseEnter={()=>{this.enterLink('cert')}} onMouseLeave={()=>{this.leaveLink('cert')}} className="about_link about_link_cert" href="https://www.youracclaim.com/badges/a02aa461-981c-4ca2-a195-1df270e5716f" target="_blank" rel="noopener noreferrer">Badge</a>, I joined a startup company named <a onMouseEnter={()=>{this.enterLink('vibix')}} onMouseLeave={()=>{this.leaveLink('vibix')}} className="about_link about_link_vibix" href="https://vibix-web.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Vibix</a>. We worked on developing shopify apps to automate users' daily time-consuming tasks. I was solely responsible to build the web presence of the company by utilizing the latest technology (ReactJS/Redux/Cloud Functions/Firebase).</p>
               <span className="about_br_span about_span">{"<br/>"}</span>
-              <p className="about_p">I don't just code, fitness is also a big part of my life! If you would like to see more, check out my social media! {socialMedia}</p>
+              <p className="about_p">I don't just code, music and fitness are also a big part of my life! If you would like to see more, check out my social media! {socialMedia}</p>
             <span className="about_p_span about_span">{"</p>"}</span>
           <span className="about_body_span about_span">{"</body>"}</span>
         </section>

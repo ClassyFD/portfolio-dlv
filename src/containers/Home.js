@@ -28,7 +28,7 @@ class Home extends Component {
     const sptl = new TimelineMax();
     const btl = new TimelineMax();
     const ltl = new TimelineMax();
-    let largeFont = '56px';
+    let largeFont = '54px';
     let smallFont = '48px';
 
     tl.staggerFrom('.home_it1', 1, {opacity: 0}, .05, '+=.3')
@@ -66,7 +66,7 @@ class Home extends Component {
     let logoStyle;
     const innerWidth = window.innerWidth;
     if (innerWidth >= 1290) {
-      logoHeight = 600;
+      logoHeight = 500;
       logoLeft = '55%';
     }
     if (innerWidth < 1290) {
@@ -178,7 +178,7 @@ class Home extends Component {
           <span className="home_h1_span">{"<h1/>"}</span>
           <p className="home_p">
             <span className="home_p_span">{"<p>"}</span>
-            &nbsp; ReactJS / NodeJS / Responsive web design &nbsp;
+            &nbsp; ReactJS / NodeJS / HTML5 / CSS3 / JS &nbsp;
             <span className="home_p_span">{"</p>"}</span>
           </p>
           <span className="home_button_span">{"<button>"}</span>

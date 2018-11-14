@@ -8,6 +8,7 @@
   width: 600px;
   height: 700px;
   min-height: 100vh;
+  justify-content: center;
 }
 .about_intro_section aside {
   font-family: tbb;
@@ -61,6 +62,7 @@
   cursor: default;
   user-select: none;
   position: relative;
+  padding: 5px 0 5px 0;
 }
 .about_p {
   font-family: abel;
@@ -91,18 +93,18 @@
   border-radius: 5px;
   box-shadow: 0px 0px 5px 2px black;
 }
-.about_mobile_profile {
+.about_profile_mobile {
   display: none;
 }
 @media (max-width:1000px) {
   .about_profile {
     display: none;
   }
-  .about_mobile_profile {
+  .about_profile_mobile {
     display: flex;
     height: 30px;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px 1px black;
+    box-shadow: 0px 0px 5px 1px #181818;
     position: relative;
     left: 15px;
   }

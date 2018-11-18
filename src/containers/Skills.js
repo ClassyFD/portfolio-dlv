@@ -35,8 +35,22 @@ class Skills extends Component {
   }
   
   componentDidMount = () => {
-    this.animateBox();
+    const tl = new TimelineMax(); // heading
+  
+    tl.staggerFrom('.skills_it', 1, {opacity: 0}, .05, '+=.2')
+    .staggerTo('.skills_it', .1, {color: '#59bd8e'}, .05, '-=1.3')
+    .staggerTo('.skills_it', .3, {fontSize: '56px', ease: Power1.easeOut}, .05, '-=1.3')
+    .staggerTo('.skills_it', .5, {color:'#ffffff'}, .03, '-=1')
+      .staggerTo('.skills_it', .5, {fontSize: '48px', ease: Power1.easeOut}, .03, '-=.8');
+      
+    const ttl = new TimelineMax(); // text
+    ttl.fromTo('.skills_p', 1, {opacity:0}, {opacity:1}, '+=.2')
+      .fromTo('.skills_span', 1, {opacity:0}, {opacity:1}, '-=1');
 
+    const ptl = new TimelineMax(); // picture
+    ptl.fromTo('.skills_wrap', 1, {opacity:0}, {opacity:1}, '+=.2')
+
+    this.animateBox();
     window.onresize = debounce(this.windowResize, 50, 200);
     this.windowResize(true);
   }

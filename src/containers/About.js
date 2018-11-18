@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../styles/about.css'
 import * as actions from '../redux/actions/nav.actions';
 import Profile from '../res/profile_picture.png';
+import Loading from '../res/ajax-loader.gif';
 import AnimateHOC from '../hocs/Animate';
 import { TimelineMax, Power1, TweenMax } from 'gsap';
 import { debounce } from '../utility/utility';
@@ -12,6 +13,7 @@ class About extends Component {
     super(props)
     this.state = {
       introText: "About me",
+      loadingImage: true,
     }
   }
 
@@ -20,8 +22,7 @@ class About extends Component {
   }
   componentDidMount = () => {
     const tl = new TimelineMax(); // heading
-    
-    this.windowResize(true);
+  
     tl.staggerFrom('.about_it', 1, {opacity: 0}, .05, '+=.2')
     .staggerTo('.about_it', .1, {color: '#59bd8e'}, .05, '-=1.3')
     .staggerTo('.about_it', .3, {fontSize: '56px', ease: Power1.easeOut}, .05, '-=1.3')
@@ -37,6 +38,7 @@ class About extends Component {
       .fromTo('.about_profile_mobile', 1, {opacity:0}, {opacity:1}, '-=1')
 
     window.onresize = debounce(this.windowResize, 50, 200);
+    this.windowResize(true);
   }
 
   windowResize = (immediate) => {
@@ -206,7 +208,13 @@ class About extends Component {
             <span className="about_p_span about_span">{"</p>"}</span>
           <span className="about_body_span about_span">{"</body>"}</span>
         </section>
-        <img className="about_profile" src={Profile}/>
+        <img onLoad={()=>{
+          if (this.state.loadingImage) {
+            this.setState({
+              loadingImage: false
+            })
+          }
+        }} className="about_profile" height={32} width={32} src={this.state.loadingImage? Loading : Profile}/>
       </main>
     )
   }

@@ -32,13 +32,11 @@ p {
   overflow-x: hidden;
   position: relative;
 }
-.Home, .About {
-  display: flex;
-}
 
 .About, .Skills, .Contact, .Home, .Projects {
   margin-left: 70px;
   background: #252627;
+  display: flex;
 }
 
 .animate-hoc {

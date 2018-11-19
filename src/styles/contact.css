@@ -1,0 +1,122 @@
+.contact_intro_section {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: relative;
+  font-family: tbb;
+  margin: 0 auto;
+  width: 40%;
+  height: 700px;
+  min-height: 100vh;
+  justify-content: center;
+}
+.contact_intro_section > aside {
+  font-family: tbb;
+  display: flex;
+  flex-wrap: wrap;
+  height: 48px;
+  align-items: center;
+}
+.contact_intro_section > aside > h1 {
+  position: relative;
+  user-select: none;
+  line-height: 48px;
+  font-size: 48px;
+  position: relative;
+  z-index: 10;
+  left: 10px;
+}
+.contact_body_span {
+  left: -15px;
+  padding: 10px 0 10px 0;
+}
+.contact_br_span {
+  left: 10px;
+  padding: 5px;
+}
+.contact_p_span, .contact_h1_span, .contact_form_span {
+  padding: 5px 0 5px 0;
+}
+.contact_p {
+  font-family: abel;
+  font-size: 16px;
+  position: relative;
+  left: 15px;
+  user-select: none;
+}
+.contact_span {
+  font-size: 16px;
+  color: #42474b;
+  opacity: .7;
+  display: flex;
+  user-select: none;
+  position: relative;
+}
+.contact_form {
+  position: relative;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.contact_form input {
+  font-size: 18px;
+  font-family: abel;
+  padding: 15px;
+  background: #37393b;
+  outline-color: #37393b;
+  border: none;
+  color: #828282;
+}
+.contact_form > input {
+  margin-top: 20px;
+}
+.contact_form aside {
+  display: flex;
+  justify-content: space-between;
+}
+.contact_form aside > input {
+  width: 40%;
+}
+.contact_form textarea {
+  font-size: 18px;
+  font-family: abel;
+  background: #37393b;
+  border: none;
+  margin-top: 20px;
+  outline-color: #37393b;
+  resize: none;
+  max-width: 570px;
+  padding: 15px;
+  color: #828282;
+}
+@media (max-width:1100px) {
+  .contact_intro_section {
+    justify-content: flex-end;
+  }
+}
+@media (max-width: 800px) {
+  .Contact {
+    flex-direction: column;
+  }
+  .contact_map {
+    width: 80% !important;
+    margin: 0 auto;
+    height: 90vh !important;
+    padding: 20px;
+  }
+  .contact_form textarea {
+    max-width: 100%;
+  }
+}
+@media (max-width: 460px) {
+  .contact_form aside {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .contact_form aside > input {
+    max-width: 100%;
+    width: calc(100% - 20px);
+    margin-top: 20px;
+  }
+}

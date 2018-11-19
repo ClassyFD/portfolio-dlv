@@ -71,11 +71,9 @@
   border: 2px solid #59bd8e;
   border-radius: 5px;
   background: none;
-  color: white;
   font-size: 14px;
-  font-family: tbb;
-  padding: 5px;
-  padding-top: 9px;
+  font-family: abel;
+  padding: 8px;
   color: #59bd8e;
   cursor: pointer;
   user-select: none;

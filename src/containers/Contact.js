@@ -14,6 +14,13 @@ class Contact extends Component {
     super(props)
     this.state = {
       introText: 'Contact Me',
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+      emailError: false,
+      messageError: false,
+      emailValidationRegex: /^[-a-z0-9~!$%^&*_=+}{'?]+(\.[-a-z0-9~!$%^&*_=+}{'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i,
     }
   }
 
@@ -108,11 +115,67 @@ class Contact extends Component {
   }
 
   focusInput = (type) => {
-    TweenMax.to(`.contact_form_input_${type}`, .5, {outlineColor: '#59bd8e'})
+    if (!this.state[`${type}Error`]) {
+      TweenMax.to(`.contact_form_input_${type}`, .5, {outlineColor: '#59bd8e'})
+    }
   }
 
   blurInput = (type) => {
-    TweenMax.to(`.contact_form_input_${type}`, 0, {outlineColor: '#37393b'})
+    if (!this.state[`${type}Error`]) {
+      TweenMax.to(`.contact_form_input_${type}`, 0, {outlineColor: '#37393b'})
+    }
+  }
+
+  enterButton = () => {
+    TweenMax.to('.contact_form_button', .3, {backgroundColor: '#59bd8e', color: 'white'});
+  }
+  leaveButton = () => {
+    TweenMax.to('.contact_form_button', .3, {backgroundColor: '#252627', color: '#59bd8e'});
+  }
+
+  handleChange = (event, type) => {
+    const value = event.target.value;
+    this.setState({
+      [type]: value,
+    })
+    if (this.state[`${type}Error`]) {
+      switch(type) {
+        case 'email':
+          this.setState({
+            [`${type}Error`]: !this.state.emailValidationRegex.test(value)
+          });
+          break;
+        case 'message':
+          if (value.trim()) {
+            this.setState({
+              [`${type}Error`]: false
+            });
+          }
+          break;
+        default:
+          break;
+      }
+    }
+  }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, message } = this.state;
+    let status = true;
+    if (!this.state.emailValidationRegex.test(email)) {
+      this.setState({
+        emailError: true
+      })
+      status = false;
+    }
+    if (!message.trim()) {
+      this.setState({
+        messageError: true
+      })
+      status = false;
+    }
+    if (status) {
+      e.target.submit()
+    }
   }
 
   render() {
@@ -148,13 +211,62 @@ class Contact extends Component {
               <p className="contact_p">If you have any questions, please use the form below and I'll get back to you ASAP!</p>
             <span className="contact_p_span contact_span">{"</p>"}</span>
             <span className="contact_form_span contact_span">{"<form>"}</span>
-              <form className="contact_form">
+              <form 
+                action="https://formspree.io/fernandodlv32@gmail.com" 
+                method="post" 
+                onSubmit={this.handleSubmit} 
+                className="contact_form"
+              >
                 <aside>
-                  <input onBlur={()=>{this.blurInput('name')}} onFocus={()=>{this.focusInput('name')}} className="contact_form_input contact_form_input_name" placeholder="Name"></input>
-                  <input onBlur={()=>{this.blurInput('email')}} onFocus={()=>{this.focusInput('email')}} className="contact_form_input contact_form_input_email" placeholder="Email"></input>
+                  <input
+                    name="name"
+                    onChange={(e)=>this.handleChange(e, 'name')} 
+                    value={state.name} 
+                    onBlur={()=>{this.blurInput('name')}} 
+                    onFocus={()=>{this.focusInput('name')}} 
+                    className="contact_form_input contact_form_input_name" 
+                    placeholder="Name"
+                  />
+                  <input 
+                    style={{border: state.emailError? '1px solid red' : null}}
+                    name="email"
+                    onChange={(e)=>this.handleChange(e, 'email')} 
+                    value={state.email} 
+                    onBlur={()=>{this.blurInput('email')}} 
+                    onFocus={()=>{this.focusInput('email')}} 
+                    className="contact_form_input contact_form_input_email" 
+                    placeholder="*Email"
+                  />
                 </aside>
-                <input onBlur={()=>{this.blurInput('subject')}} onFocus={()=>{this.focusInput('subject')}} className="contact_form_input contact_form_input_subject" placeholder="Subject"></input>
-                <textarea onBlur={()=>{this.blurInput('message')}} onFocus={()=>{this.focusInput('message')}} className="contact_form_input contact_form_input_message" placeholder="Message" rows={5}/>
+                <input 
+                  name="subject"
+                  onChange={(e)=>this.handleChange(e, 'subject')} 
+                  value={state.subject} 
+                  onBlur={()=>{this.blurInput('subject')}} 
+                  onFocus={()=>{this.focusInput('subject')}} 
+                  className="contact_form_input contact_form_input_subject" 
+                  placeholder="Subject"
+                />
+                <textarea 
+                  style={{border: state.messageError? '1px solid red' : null}}
+                  name="message"
+                  onChange={(e)=>this.handleChange(e, 'message')} 
+                  value={state.message} 
+                  onBlur={()=>{this.blurInput('message')}} 
+                  onFocus={()=>{this.focusInput('message')}} 
+                  className="contact_form_input contact_form_input_message" 
+                  placeholder="*Message"  
+                  rows={5}
+                />
+                <div style={{position:'relative', height: 0, display:'flex', justifyContent:'flex-end', top: 55}}>
+                  <button 
+                    onMouseEnter={this.enterButton} 
+                    onMouseLeave={this.leaveButton} 
+                    className="contact_form_button"
+                  >
+                    S E N D
+                  </button>
+                </div>
               </form>
             <span className="contact_form_span contact_span">{"</form>"}</span>
           <span className="contact_body_span contact_span">{"</body>"}</span>

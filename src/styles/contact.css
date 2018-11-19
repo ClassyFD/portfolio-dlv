@@ -86,9 +86,29 @@
   margin-top: 20px;
   outline-color: #37393b;
   resize: none;
-  max-width: 570px;
+  max-width: 100%;
   padding: 15px;
   color: #828282;
+}
+.contact_form_button {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+  border: 2px solid #59bd8e;
+  border-radius: 5px;
+  background: #252627;
+  font-size: 14px;
+  font-family: abel;
+  padding: 8px;
+  color: #59bd8e;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  width: 100px;
+  z-index: 5;
+}
+.contact_map {
+  z-index: 10;
 }
 @media (max-width:1100px) {
   .contact_intro_section {

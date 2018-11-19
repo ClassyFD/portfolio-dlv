@@ -17,6 +17,7 @@ html, body {
   position: relative;
   min-height: 100vh;
   width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 h1 {
   margin: 0;
@@ -31,6 +32,7 @@ p {
   background: #2c2d2e;
   overflow-x: hidden;
   position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 .About, .Skills, .Contact, .Home, .Projects {

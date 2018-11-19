@@ -35,7 +35,10 @@ class Contact extends Component {
       .fromTo('.contact_span', 1, {opacity:0}, {opacity:1}, '-=1');
 
     const ptl = new TimelineMax(); // picture
-    ptl.fromTo('.contact_wrap', 1, {opacity:0}, {opacity:1}, '+=.2')
+    ptl.fromTo('.contact_map', 1, {opacity:0}, {opacity:1}, '+=.2')
+    
+    const ftl = new TimelineMax(); // form
+    ftl.fromTo('.contact_form', 1, {opacity:0}, {opacity:1}, '+=.2')
 
     window.onresize = debounce(this.windowResize, 50, 200);
     this.windowResize(true);
@@ -66,10 +69,10 @@ class Contact extends Component {
     
     let pSize;
     let pStyle;
-    if (innerWidth >= 460) {
+    if (innerWidth > 460) {
       pSize = '16px';
     }
-    if (innerWidth < 460) {
+    if (innerWidth <= 460) {
       pSize = '12px';
     }
     pStyle = {

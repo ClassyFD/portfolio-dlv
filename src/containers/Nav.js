@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Logo from '../res/logo.png';
+import Logo from '../res/logo.webp';
 import { TweenMax } from 'gsap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';

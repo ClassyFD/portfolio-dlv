@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { TweenMax, TimelineMax, Power1 } from 'gsap';
 import { Link } from 'react-router-dom';
-import FLogo from '../res/f_logo.png'
+import FLogo from '../res/f_logo.webp'
 import * as actions from '../redux/actions/nav.actions';
 import '../styles/home.css';
 import AnimateHOC from '../hocs/Animate';
@@ -158,13 +158,13 @@ class Home extends Component {
     introText2 = state.introText2.split('');
     introText2 = introText2.map((el, i)=>{
       return (
-        <h1 key={i} onMouseEnter={()=>{this.enterIT('it2', i)}} onMouseLeave={()=>{this.leaveIT('it2', i)}} className={` home_it home_it2 home_it2_${i}`}>{el}{el==='m' ? '\xa0':''}</h1>
+        <h1 key={i} onMouseEnter={()=>{this.enterIT('it2', i)}} onMouseLeave={()=>{this.leaveIT('it2', i)}} className={` home_it home_it2 home_it2_${i}`}>{el}{el===' ' ? '\xa0':''}</h1>
       )
     })
     introText3 = state.introText3.split('');
     introText3 = introText3.map((el, i)=>{
       return (
-        <h1 key={i} onMouseEnter={()=>{this.enterIT('it3', i)}} onMouseLeave={()=>{this.leaveIT('it3', i)}} className={` home_it home_it3 home_it3_${i}`}>{el}{el==='m' || el==='k' || el==='b' ? '\xa0':''}</h1>
+        <h1 key={i} onMouseEnter={()=>{this.enterIT('it3', i)}} onMouseLeave={()=>{this.leaveIT('it3', i)}} className={` home_it home_it3 home_it3_${i}`}>{el}{el===' ' ? '\xa0':''}</h1>
       )
     })
 

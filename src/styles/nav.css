@@ -1,5 +1,5 @@
 .Nav {
-  position: absolute;
+  position: fixed;
   left: 0;
   height: 100vh;
   width: 70px;
@@ -39,7 +39,6 @@
   font-family: tbb;
   cursor: pointer;
   user-select: none;
-  background: black;
 }
 
 .nav_buttons {
@@ -100,6 +99,9 @@
  .nav_social_media {
    flex-direction: row;
  } 
+ .Nav {
+   position: absolute;
+ }
 }
 @media(max-width:500px) {
   .nav_social_media {

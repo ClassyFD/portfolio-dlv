@@ -6,7 +6,7 @@ import AnimateHOC from '../hocs/Animate';
 import { TimelineMax, Power1, TweenMax } from 'gsap';
 import GoogleMapReact from 'google-map-react';
 import env from '../utility/env';
-import FMarker from '../res/f_marker.png';
+import FMarker from '../res/f_marker.webp';
 import { debounce } from '../utility/utility';
 
 class Contact extends Component {
@@ -76,10 +76,10 @@ class Contact extends Component {
     
     let pSize;
     let pStyle;
-    if (innerWidth > 460) {
+    if (innerWidth > 500) {
       pSize = '16px';
     }
-    if (innerWidth <= 460) {
+    if (innerWidth <= 500) {
       pSize = '12px';
     }
     pStyle = {
@@ -178,6 +178,13 @@ class Contact extends Component {
     }
   }
 
+  enterLink = (type) => {
+    TweenMax.to(`.contact_link_${type}`, .4, {color: 'white'});
+  }
+  leaveLink = (type) => {
+    TweenMax.to(`.contact_link_${type}`, .4, {color: '#59bd8e'});
+  }
+
   render() {
     const { state } = this;
     let introText;
@@ -208,7 +215,9 @@ class Contact extends Component {
               </aside>
             <span className="contact_h1_span contact_span">{"<h1/>"}</span>
             <span className="contact_p_span contact_span">{"<p>"}</span>
-              <p className="contact_p">If you have any questions, please use the form below and I'll get back to you ASAP!</p>
+              <p className="contact_p">
+                If you have any questions, please email me at <a onMouseEnter={()=>{this.enterLink('email')}} onMouseLeave={()=>{this.leaveLink('email')}} className="contact_link contact_link_email" href="mailto:fernandodlv32@gmail.com">fernandodlv32@gmail.com</a>. You can also use the form below, and I'll get back to you ASAP!
+              </p>
             <span className="contact_p_span contact_span">{"</p>"}</span>
             <span className="contact_form_span contact_span">{"<form>"}</span>
               <form 
@@ -281,7 +290,7 @@ class Contact extends Component {
             lat={center.lat}
             lng={center.lng}
             marker={
-              <img src={FMarker} style={{height:40, width: 32, opacity: .8, position:'absolute', top: -40}}/>
+              <img alt="Google maps marker" src={FMarker} style={{height:40, width: 32, opacity: .8, position:'absolute', top: -40}}/>
             }
           />
           </GoogleMapReact>

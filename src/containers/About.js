@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/about.css'
 import * as actions from '../redux/actions/nav.actions';
-import Profile from '../res/profile_picture.png';
-import Loading from '../res/ajax-loader.gif';
+import Profile from '../res/profile_picture.webp';
 import AnimateHOC from '../hocs/Animate';
 import { TimelineMax, Power1, TweenMax } from 'gsap';
 import { debounce } from '../utility/utility';
@@ -13,7 +12,6 @@ class About extends Component {
     super(props)
     this.state = {
       introText: "About me",
-      loadingImage: true,
     }
   }
 
@@ -194,7 +192,7 @@ class About extends Component {
             <span className="about_h1_span about_span">{"<h1>"}</span>
               <aside>
               {introText}
-              <img src={Profile} className="about_profile_mobile"/>
+              <img alt="Mobile profile pic of me" src={Profile} className="about_profile_mobile"/>
               </aside>
             <span className="about_h1_span about_span">{"<h1/>"}</span>
             <span className="about_p_span about_span">{"<p>"}</span>
@@ -208,13 +206,7 @@ class About extends Component {
             <span className="about_p_span about_span">{"</p>"}</span>
           <span className="about_body_span about_span">{"</body>"}</span>
         </section>
-        <img onLoad={()=>{
-          if (this.state.loadingImage) {
-            this.setState({
-              loadingImage: false
-            })
-          }
-        }} className="about_profile" height={32} width={32} src={this.state.loadingImage? Loading : Profile}/>
+        <img alt="Profile pic of me" className="about_profile" height={32} width={32} src={Profile}/>
       </main>
     )
   }

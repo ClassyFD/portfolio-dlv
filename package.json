@@ -6,7 +6,6 @@
     "dotenv": "^6.1.0",
     "google-map-react": "^1.1.0",
     "gsap": "^2.0.2",
-    "izitoast": "^1.4.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.0",

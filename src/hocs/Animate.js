@@ -12,14 +12,14 @@ const AnimateHOC = () => {
         const { animatedComp } = props;
         if (animatedComp && animatedComp.status) {
           if (animatedComp.route !== props.match.path) {
-            tl.to('.animate-hoc', .5, {opacity: 0})
+            tl.to('.animate-hoc', .3, {opacity: 0})
             .call((()=>{
               props.history.push(animatedComp.route)
               props.setAnimatedComp(animatedComp.route)
             }), null, null);
           }
         } else {
-          tl.fromTo('.animate-hoc', .5, {opacity: 0}, {opacity: 1});
+          tl.fromTo('.animate-hoc', .3, {opacity: 0}, {opacity: 1});
         }
       }
 

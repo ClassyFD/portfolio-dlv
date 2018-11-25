@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/about.css'
 import * as actions from '../redux/actions/nav.actions';
-import Profile from '../res/profile_picture.webp';
+import Profile from '../res/profile_picture.png';
 import AnimateHOC from '../hocs/Animate';
 import { TimelineMax, Power1, TweenMax } from 'gsap';
 import { debounce } from '../utility/utility';

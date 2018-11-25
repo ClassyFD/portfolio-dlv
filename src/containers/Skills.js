@@ -78,28 +78,28 @@ class Skills extends Component {
     }
     if (innerWidth <= 1100) {
       textLeft = 0;
-      textTop = 70;
+      textTop = 0;
       textPadding = '0 0 0 20px';
       textWidth = '600px';
       textMargin = 0;
     }
     if (innerWidth < 1000) {
       textLeft = 0;
-      textTop = 70;
+      textTop = 0;
       textPadding = 0;
       textWidth = '500px';
       textMargin = '0 auto'
     }
     if (innerWidth < 700) {
       textLeft = 0;
-      textTop = 70;
+      textTop = 0;
       textPadding = 0;
       textWidth = '90%';
       textMargin = '0 auto'
     }
     if (innerWidth < 460) {
       textLeft = 0;
-      textTop = 70;
+      textTop = 0;
       textPadding = 0;
       textWidth = '80%';
       textMargin = '0 auto'

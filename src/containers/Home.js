@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { TweenMax, TimelineMax, Power1 } from 'gsap';
 import { Link } from 'react-router-dom';
-import FLogo from '../res/f_logo.webp'
+import FLogo from '../res/f_logo.png'
 import * as actions from '../redux/actions/nav.actions';
 import '../styles/home.css';
 import AnimateHOC from '../hocs/Animate';

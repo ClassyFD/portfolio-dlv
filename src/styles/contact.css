@@ -134,6 +134,9 @@
   }
 }
 @media (max-width: 500px) {
+  .contact_intro_section {
+    margin-top: 60px;
+  }
   .contact_form aside {
     flex-direction: column;
     max-width: 100%;

@@ -6,7 +6,7 @@ import AnimateHOC from '../hocs/Animate';
 import { TimelineMax, Power1, TweenMax } from 'gsap';
 import GoogleMapReact from 'google-map-react';
 import env from '../utility/env';
-import FMarker from '../res/f_marker.webp';
+import FMarker from '../res/f_marker.png';
 import { debounce } from '../utility/utility';
 
 class Contact extends Component {

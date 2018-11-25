@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Logo from '../res/logo.webp';
+import Logo from '../res/logo.png';
 import { TweenMax } from 'gsap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -65,7 +65,7 @@ class Nav extends Component {
   animateComp = (e, route) => {
     e.preventDefault();
     this.props.setAnimatedComp(route);
-    if (window.innerWidth <= 500) {
+    if (window.innerWidth <= 500 && this.state.mobileNav) {
       this.toggleMobileNav();
     }
   }
@@ -109,6 +109,7 @@ class Nav extends Component {
           <a href="https://www.linkedin.com/in/fernandodlv" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('linkedin-nav', true)}} onMouseLeave={()=>{this.leaveNavButtons('linkedin-nav', true)}} className="fab fa-linkedin fa-linkedin-nav"/></a>
           <a href="https://www.facebook.com/fernandodlv32" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('facebook-nav', true)}} onMouseLeave={()=>{this.leaveNavButtons('facebook-nav', true)}} className="fab fa-facebook fa-facebook-nav"/></a>
           <a href="https://www.instagram.com/f.dlv" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('instagram-nav', true)}} onMouseLeave={()=>{this.leaveNavButtons('instagram-nav', true)}} className="fab fa-instagram fa-instagram-nav"/></a>
+          <a href="https://github.com/ClassyFD" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('github-nav', true)}} onMouseLeave={()=>{this.leaveNavButtons('github-nav', true)}} className="fab fa-github fa-github-nav"/></a>
         </section>
         <section className="nav_mobile">
           <i onMouseEnter={this.enterMobileNav} onMouseLeave={this.leaveMobileNav} onClick={this.toggleMobileNav} className="fas fa-2x fa-bars"/>

@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import '../styles/projects.css'
 import * as actions from '../redux/actions';
 import AnimateHOC from '../hocs/Animate';
-import LandingVibixScheduler from '../res/landing-vibix-scheduler.webp';
-import LandingVibixConsignment from '../res/landing-vibix-consignment.webp';
-import LandingVibixWeb from '../res/landing-vibix-web.webp';
-import LandingIfunny from '../res/landing_ifunny.webp';
-import LandingQuiltback from '../res/landing-quiltback.webp';
-import LandingDeliwin from '../res/landing-deliwin.webp';
+import LandingVibixScheduler from '../res/landing-vibix-scheduler.png';
+import LandingVibixConsignment from '../res/landing-vibix-consignment.png';
+import LandingVibixWeb from '../res/landing-vibix-web.png';
+import LandingIfunny from '../res/landing_ifunny.png';
+import LandingQuiltback from '../res/landing-quiltback.png';
+import LandingDeliwin from '../res/landing-deliwin.png';
 import { TweenMax, TimelineMax, Power1 } from 'gsap';
 import { debounce } from '../utility/utility';
 
@@ -122,6 +122,12 @@ class Projects extends Component {
     tl.to(`.projects_${type}_${index}`, .5, {color:'#ffffff'});
     tl.to(`.projects_${type}_${index}`, .5, {fontSize: '48px', ease: Power1.easeOut}, '-=.3');
   }
+  enterButtons = (type) => {
+    TweenMax.to(`.fa-${type}-projects`, .4, {color: 'white'});
+  }
+  leaveButtons = (type) => {
+    TweenMax.to(`.fa-${type}-projects`, .4, {color: '#59bd8e'});
+  }
 
   render = () => {
     const { state } = this;
@@ -132,7 +138,7 @@ class Projects extends Component {
         <h1 key={i} onMouseEnter={()=>{this.enterIT('it', i)}} onMouseLeave={()=>{this.leaveIT('it', i)}} className={`projects_it projects_it_${i}`}>{el}{el===' ' ? '\xa0':''}</h1>
       )
     })
-    let projects = this.state.projects.map((el, i) => {
+    const projects = this.state.projects.map((el, i) => {
       return (
         <div onMouseEnter={()=>{this.enterProject(i)}} onMouseLeave={()=>{this.leaveProject(i)}} key={i} className={`projects_el`}>
           <img className={`projects_img_${i}`} alt={`project page ${el.name}`} src={el.image} />
@@ -141,6 +147,7 @@ class Projects extends Component {
         </div>
       )
     })
+    const github = <a className="projects_social_media" href="https://github.com/ClassyFD" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterButtons('github')}} onMouseLeave={()=>{this.leaveButtons('github')}} className="fab fa-github fa-github-projects"/></a>
     return (
       <main className={'Projects'}>
         <section className="projects_intro_section">
@@ -150,7 +157,7 @@ class Projects extends Component {
           </aside>
           <span className="projects_h1_span projects_span">{"</h1>"}</span>
           <span className="projects_p_span projects_span">{"<p>"}</span>
-            <p className="projects_p">Click on a project to see more about it!</p>
+            <p className="projects_p">You can also check out my github for more of my mini projects! {github}</p>
           <span className="projects_p_span projects_span">{"</p>"}</span>
         </section>
         <section className="projects_project_section">

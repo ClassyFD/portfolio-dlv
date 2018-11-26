@@ -236,7 +236,7 @@ class Skills extends Component {
               <span className="skills_br_span skills_span">{"<br/>"}</span>
               <p className="skills_p">I have experience with Amazon Web Services and Google Cloud Platform. I've used many APIs and a variety of libraries in my apps. I also like to add animation to make the apps stand out a bit more!</p>
               <span className="skills_br_span skills_span">{"<br/>"}</span>
-              <p className="skills_p">If you would like to know more, check out my <a onMouseEnter={()=>{this.enterLink('linkedin')}} onMouseLeave={()=>{this.leaveLink('linkedin')}} className="skills_link skills_link_linkedin" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">Linkedin</a>, or just <Link to='/contact' onMouseEnter={()=>{this.enterLink('contact')}} onMouseLeave={()=>{this.leaveLink('contact')}} className="skills_link skills_link_contact">contact</Link> me!</p>
+              <p className="skills_p">If you would like to know more, check out my <a onMouseEnter={()=>{this.enterLink('linkedin')}} onMouseLeave={()=>{this.leaveLink('linkedin')}} className="skills_link skills_link_linkedin" href="https://linkedin.com/in/fernandodlv" target="_blank" rel="noopener noreferrer">LinkedIn</a>, or just <Link to='/contact' onMouseEnter={()=>{this.enterLink('contact')}} onMouseLeave={()=>{this.leaveLink('contact')}} className="skills_link skills_link_contact">contact</Link> me!</p>
             <span className="skills_p_span skills_span">{"</p>"}</span>
           <span className="skills_body_span skills_span">{"</body>"}</span>
         </section>

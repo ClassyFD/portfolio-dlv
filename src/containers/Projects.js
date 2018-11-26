@@ -147,7 +147,7 @@ class Projects extends Component {
         </div>
       )
     })
-    const github = <a className="projects_social_media" href="https://github.com/ClassyFD" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterButtons('github')}} onMouseLeave={()=>{this.leaveButtons('github')}} className="fab fa-github fa-github-projects"/></a>
+    const github = <a onMouseEnter={()=>{this.enterButtons('github')}} onMouseLeave={()=>{this.leaveButtons('github')}} className="projects_social_media" href="https://github.com/ClassyFD" rel="noopener noreferrer" target="_blank"><i className="fab fa-github fa-github-projects"/></a>
     return (
       <main className={'Projects'}>
         <section className="projects_intro_section">

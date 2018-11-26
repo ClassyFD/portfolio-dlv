@@ -98,7 +98,8 @@ class Home extends Component {
     }
     let introLeft;
     let introStyle;
-    let introPadding
+    let introPadding;
+
     if (innerWidth >= 1100) {
       introLeft = 0;
       introPadding = '0 0 0 100px'
@@ -113,7 +114,7 @@ class Home extends Component {
     }
     if (innerWidth <= 600) {
       introLeft = 0;
-      introPadding = '0 0 0 50px'
+      introPadding = '0 0 0 0px'
     }
     if (innerWidth < 480) {
       introLeft = 0;
@@ -181,9 +182,11 @@ class Home extends Component {
             &nbsp; ReactJS / NodeJS / HTML5 / CSS3 / JS &nbsp;
             <span className="home_p_span">{"</p>"}</span>
           </p>
-          <span className="home_button_span">{"<button>"}</span>
-          <Link className="home_link" to="/contact"><button className="home_button" onMouseEnter={this.enterButton} onMouseLeave={this.leaveButton}>C O N T A C T  &nbsp;&nbsp; M E</button></Link>
-          <span className="home_button_span">{"</button>"}</span>
+          <div>
+            <span className="home_button_span">{"<button>"}</span>
+            <Link className="home_link" to="/contact"><button className="home_button" onMouseEnter={this.enterButton} onMouseLeave={this.leaveButton}>C O N T A C T  &nbsp;&nbsp; M E</button></Link>
+            <span className="home_button_span">{"</button>"}</span>
+          </div>
         </section>
         <img alt="home logo" className="home_logo" src={FLogo}/>
       </main>

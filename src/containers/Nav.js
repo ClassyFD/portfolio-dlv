@@ -19,13 +19,15 @@ class Nav extends Component {
     const { comp } = this.state;
     TweenMax.to(`.fa-${comp}`, .4, {color: '#59bd8e'});
     TweenMax.to(`.p-${comp}`, .4, {color: '#59bd8e', opacity: 0}, '-=.4')
+    TweenMax.to('.nav_target', .4, {opacity: comp==='home'? 1 : .7})
   }
 
   componentWillReceiveProps = (props) => {
     const { comp } = props;
     TweenMax.to(`.fa-lg`, .4, {color: '#42474b'})
-    TweenMax.to(`.fa-${comp}`, .4, {color: '#59bd8e'}, '-=.4');
-    TweenMax.to(`.p-${comp}`, .4, {color: '#59bd8e', opacity: 0}, '-=.4')
+    TweenMax.to(`.fa-${comp}`, .4, {color: '#59bd8e'});
+    TweenMax.to(`.p-${comp}`, .4, {color: '#59bd8e', opacity: 0})
+    TweenMax.to('.nav_target', .4, {opacity: comp==='home'? 1 : .7})
     this.setState({
       comp
     })
@@ -54,6 +56,12 @@ class Nav extends Component {
   leaveMobileNav = () => {
     TweenMax.to(`.fa-bars`, .4, {color: this.state.mobileNav? '#ffffff' : '#42474b'})
   }
+  enterNavIcon = () => {
+    TweenMax.to(`.nav_target`, .3, {opacity: 1})
+  }
+  leaveNavIcon = () => {
+    TweenMax.to(`.nav_target`, .3, {opacity: this.state.comp==='home'? 1 : .7})
+  }
   
   toggleMobileNav = () => {
     TweenMax.to('.mobile_nav_buttons', .4, {left: this.state.mobileNav? '100%' : '0px', opacity: this.state.mobileNav? 0 : 1});
@@ -73,7 +81,7 @@ class Nav extends Component {
   render = () => {
     return (
       <main className={'Nav'}>
-        <Link onClick={(e)=>this.animateComp(e, '/')} className="nav_link" to='/'>
+        <Link onMouseEnter={this.enterNavIcon} onMouseLeave={this.leaveNavIcon} onClick={(e)=>this.animateComp(e, '/')} className="nav_link nav_target" to='/'>
           <section className="nav_icon">
             <img height={60} src={Logo} alt="profile logo"/>
           </section>

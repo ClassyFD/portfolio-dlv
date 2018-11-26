@@ -64,6 +64,9 @@
   font-family: tbb;
   font-size: 16px;
 }
+.nav_target {
+  opacity: .7;
+}
 
 @media(max-width:1100px) {
   .nav_buttons {

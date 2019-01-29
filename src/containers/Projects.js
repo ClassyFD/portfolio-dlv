@@ -9,6 +9,7 @@ import LandingVibixWeb from '../res/landing-vibix-web.png';
 import LandingIfunny from '../res/landing_ifunny.png';
 import LandingQuiltback from '../res/landing-quiltback.png';
 import LandingDeliwin from '../res/landing-deliwin.png';
+import GameOfLife from '../res/game-of-life.png';
 import { TweenMax, TimelineMax, Power1 } from 'gsap';
 import { debounce } from '../utility/utility';
 
@@ -32,6 +33,7 @@ class Projects extends Component {
           name: 'Vibix Web',
           description: <p>Website built in order to ramp-up the digital presence of Vibix Automation.</p>,
           image: LandingVibixWeb,
+          href: "https://vibix-web.firebaseapp.com",
         },
         {
           name: 'iFunny',
@@ -47,6 +49,12 @@ class Projects extends Component {
           name: 'Deliwin Cafe',
           description: <p>Designed, and created a cafe restaurant's website that sells hispanic and vietnamese food. (Not a real business.)</p>,
           image: LandingDeliwin,
+        },
+        {
+          name: 'Game of Life',
+          description: <p>A clone of <a className="projects_link" href="https://bitstorm.org/gameoflife/" target="_blank" rel="noopener noreferrer">John Conway's Game of Life</a> with my own design.</p>,
+          image: GameOfLife,
+          href: "https://game-of-life-fd.firebaseapp.com",
         },
       ]
     }
@@ -141,7 +149,13 @@ class Projects extends Component {
     const projects = this.state.projects.map((el, i) => {
       return (
         <div onMouseEnter={()=>{this.enterProject(i)}} onMouseLeave={()=>{this.leaveProject(i)}} key={i} className={`projects_el`}>
-          <img className={`projects_img_${i}`} alt={`project page ${el.name}`} src={el.image} />
+          {el.href? (
+            <a href={el.href} target="_blank" rel="noopener noreferrer">
+              <img className={`projects_img_${i}`} alt={`project page ${el.name}`} src={el.image} />
+            </a>
+          ) : (
+            <img className={`projects_img_${i}`} alt={`project page ${el.name}`} src={el.image} />
+          )}
           <h2 className={`projects_h2_${i}`}>{el.name}</h2>
           {el.description}
         </div>

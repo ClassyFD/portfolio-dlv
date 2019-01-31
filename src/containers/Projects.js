@@ -10,6 +10,7 @@ import LandingIfunny from '../res/landing_ifunny.png';
 import LandingQuiltback from '../res/landing-quiltback.png';
 import LandingDeliwin from '../res/landing-deliwin.png';
 import GameOfLife from '../res/game-of-life.png';
+import HALanding from '../res/ha-landing.png';
 import { TweenMax, TimelineMax, Power1 } from 'gsap';
 import { debounce } from '../utility/utility';
 
@@ -19,6 +20,11 @@ class Projects extends Component {
     this.state = {
       introText: 'My Projects',
       projects: [
+        {
+          name: 'Hispanic Alliance of GA',
+          description: <p>Helped a non-profit redo/update their wordpress website. Added spanish translations, storyboards, and refactored old components.</p>,
+          image: HALanding,
+        },
         {
           name: 'Vibix Scheduler',
           description: <p>Shopify app built to help store owners create, apply, and manage discounts for thousands of products.</p>,

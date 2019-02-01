@@ -43,8 +43,8 @@
   cursor: default;
   user-select: none;
   position: relative;
-  left: 10px;
   padding: 5px;
+  padding-left: 0;
 }
 .skills_p_span {
   color: #42474b;

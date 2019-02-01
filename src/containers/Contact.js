@@ -216,7 +216,7 @@ class Contact extends Component {
             <span className="contact_h1_span contact_span">{"<h1/>"}</span>
             <span className="contact_p_span contact_span">{"<p>"}</span>
               <p className="contact_p">
-                If you have any questions, please email me at <a onMouseEnter={()=>{this.enterLink('email')}} onMouseLeave={()=>{this.leaveLink('email')}} className="contact_link contact_link_email" href="mailto:fernandodlv32@gmail.com">fernandodlv32@gmail.com</a>. You can also use the form below, and I'll get back to you ASAP!
+                Contact me by email at <a onMouseEnter={()=>{this.enterLink('email')}} onMouseLeave={()=>{this.leaveLink('email')}} className="contact_link contact_link_email" href="mailto:fernandodlv32@gmail.com">fernandodlv32@gmail.com</a>, or use the form below. I'll get back to you ASAP!
               </p>
             <span className="contact_p_span contact_span">{"</p>"}</span>
             <span className="contact_form_span contact_span">{"<form>"}</span>

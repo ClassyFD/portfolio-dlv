@@ -185,7 +185,7 @@ class Home extends Component {
           </p>
           <div>
             <span className="home_button_span">{"<button>"}</span>
-            <Link className="home_link" to="/contact"><button className="home_button" onMouseEnter={this.enterButton} onMouseLeave={this.leaveButton}>C O N T A C T  &nbsp;&nbsp; M E</button></Link>
+            <Link className="home_link" to="/projects"><button className="home_button" onMouseEnter={this.enterButton} onMouseLeave={this.leaveButton}>V I E W  &nbsp;&nbsp; P R O J E C T S</button></Link>
             <span className="home_button_span">{"</button>"}</span>
           </div>
         </section>

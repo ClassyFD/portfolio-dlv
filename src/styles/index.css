@@ -51,6 +51,14 @@ p {
   position: relative;
 }
 
+.app-inspired {
+  font-family: abel;
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  color: #5d5e5f;
+}
+
 @media (max-width: 1100px) {
   .About, .Skills, .Contact, .Home, .Projects {
     margin-left: 0px;

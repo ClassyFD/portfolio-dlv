@@ -231,11 +231,11 @@ class Skills extends Component {
             <span className="skills_h1_span skills_span">{"<h1/>"}</span>
             <span className="skills_p_span skills_span">{"<p>"}</span>
               <p className="skills_p">I mainly work with front end technology (HTML5, CSS3, ES5/ES6 JavaScript) to build scalable, responsive, single page web applications. I use ReactJS for most of my projects, and manage state with Redux.</p>
-              <span className="skills_br_span skills_span">{"<br/>"}</span>
+              <span className="skills_br_span skills_span">{"</p> <p>"}</span>
               <p className="skills_p">For the back end, I usually build Express apps with NodeJS. I handle database management with either MassiveJS or Firebase. I host all of my websites with Firebase as well.</p>
-              <span className="skills_br_span skills_span">{"<br/>"}</span>
+              <span className="skills_br_span skills_span">{"</p> <p>"}</span>
               <p className="skills_p">I have experience with Amazon Web Services and Google Cloud Platform. I've used many APIs and a variety of libraries in my apps. I also like to add animation to make the apps stand out a bit more!</p>
-              <span className="skills_br_span skills_span">{"<br/>"}</span>
+              <span className="skills_br_span skills_span">{"</p> <p>"}</span>
               <p className="skills_p">If you would like to know more, you can always <Link to='/contact' onMouseEnter={()=>{this.enterLink('contact')}} onMouseLeave={()=>{this.leaveLink('contact')}} className="skills_link skills_link_contact">contact me</Link>!</p>
             <span className="skills_p_span skills_span">{"</p>"}</span>
           <span className="skills_body_span skills_span">{"</body>"}</span>

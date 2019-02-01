@@ -14,7 +14,6 @@
   <g transform="rotate(190,179,36)">
     <path d="M8, 94 Q25,11 150,20" fill="blue"/>
   </g>
-  <rect x="60" y="18" width="250" height="40" fill="blue">
-  </rect>
+  <rect x="60" y="18" width="250" height="40" fill="blue"/>
   <path d="M4,93 Q25,0 150,19 270,30 356,4" stroke="white" stroke-width="10" fill="none"/>
 </svg>

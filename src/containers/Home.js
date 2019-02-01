@@ -52,7 +52,7 @@ class Home extends Component {
 
     ptl.from('.home_p', 1, {opacity: 0}, '+=2');
     sptl.from('.home_h1_span', 1, {opacity: 0}, '+=2');
-    ltl.from('.home_logo', 1, {opacity: 0}/* , '+=2' */)
+    ltl.from('.home_logo', 1, {opacity: 0}, '+=2')
     btl.from('.home_button', 1, {opacity: 0}, '+=2')
       .from('.home_button_span', 1, {opacity: 0}, '-=1');
 
@@ -190,7 +190,7 @@ class Home extends Component {
           </div>
         </section>
         <img alt="home logo" className="home_logo" src={FLogo}/>
-        <TestLogo className="home_logo"/>
+        {/* <TestLogo className="home_logo"/> */}
       </main>
     )
   }

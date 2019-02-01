@@ -88,7 +88,6 @@
 .home_logo {
   display: flex;
   align-self: center;
-  transform: rotate(10deg);
   z-index: 5;
   height: 500px;
   position: absolute;

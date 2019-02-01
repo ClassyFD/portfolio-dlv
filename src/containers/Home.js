@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { TweenMax, TimelineMax, Power1 } from 'gsap';
 import { Link } from 'react-router-dom';
 import FLogo from '../res/f_logo.png'
+import { ReactComponent as TestLogo} from '../res/f_logo.svg';
 import * as actions from '../redux/actions/nav.actions';
 import '../styles/home.css';
 import AnimateHOC from '../hocs/Animate';
@@ -51,7 +52,7 @@ class Home extends Component {
 
     ptl.from('.home_p', 1, {opacity: 0}, '+=2');
     sptl.from('.home_h1_span', 1, {opacity: 0}, '+=2');
-    ltl.from('.home_logo', 1, {opacity: 0}, '+=2')
+    ltl.from('.home_logo', 1, {opacity: 0}/* , '+=2' */)
     btl.from('.home_button', 1, {opacity: 0}, '+=2')
       .from('.home_button_span', 1, {opacity: 0}, '-=1');
 
@@ -189,6 +190,7 @@ class Home extends Component {
           </div>
         </section>
         <img alt="home logo" className="home_logo" src={FLogo}/>
+        <TestLogo className="home_logo"/>
       </main>
     )
   }

@@ -39,7 +39,6 @@ class Projects extends Component {
           name: 'Vibix Web',
           description: <p>Website built in order to ramp-up the digital presence of Vibix Automation.</p>,
           image: LandingVibixWeb,
-          href: "https://vibix-web.firebaseapp.com",
         },
         {
           name: 'iFunny',

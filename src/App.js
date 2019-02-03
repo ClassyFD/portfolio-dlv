@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        <Nav/>
+        {/* <Nav/>
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/about" component={About}/>
@@ -20,7 +20,7 @@ class App extends Component {
           <Route path="/projects" component={Projects}/>
           <Route path="/contact" component={Contact}/>
         </Switch>
-        <p className="app-inspired">Inspired by <a className="contact_link" href="https://jacekjeznach.com/" target="_blank" rel="noreferrer noopener">Jacek Jeznach</a></p>
+        <p className="app-inspired">Inspired by <a className="contact_link" href="https://jacekjeznach.com/" target="_blank" rel="noreferrer noopener">Jacek Jeznach</a></p> */}
       </main>
     );
   }

@@ -66,7 +66,7 @@ class Projects extends Component {
   }
 
   componentWillMount = () => {
-    this.props.setMountedComp('eye');
+    this.props.setMountedComp('projects');
   }
 
   componentDidMount = () => {

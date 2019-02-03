@@ -12,62 +12,45 @@ class Nav extends Component {
     this.state = {
       comp: 'home',
       mobileNav: false,
+      animate: true
     }
   }
   
   componentDidMount = () => {
     const { comp } = this.state;
-    TweenMax.to(`.fa-${comp}`, .4, {color: '#59bd8e'});
-    TweenMax.to(`.p-${comp}`, .4, {color: '#59bd8e', opacity: 0}, '-=.4')
-    TweenMax.to('.nav_target', .4, {opacity: comp==='home'? 1 : .7})
-  }
-
-  componentWillReceiveProps = (props) => {
-    const { comp } = props;
-    TweenMax.to(`.fa-lg`, .4, {color: '#42474b'})
-    TweenMax.to(`.fa-${comp}`, .4, {color: '#59bd8e'});
-    TweenMax.to(`.p-${comp}`, .4, {color: '#59bd8e', opacity: 0})
-    TweenMax.to('.nav_target', .4, {opacity: comp==='home'? 1 : .7})
-    this.setState({
-      comp
-    })
-  }
-
-  enterNavButtons = (type, bool) => {
-    if (bool) {
-      TweenMax.to(`.fa-${type}`, .4, {color:'#59bd8e'})
-    } else {
-      TweenMax.to(`.fa-${type}`, .4, {color:'#181818'})
-      TweenMax.to(`.p-${type}`, .4, {color:'#59bd8e', opacity: 1}, '-=.4')
-    }
-  }
-  leaveNavButtons = (type, bool) => {
-    if (bool) {
-      TweenMax.to(`.fa-${type}`, .4, {color:'#42474b'})
-    } else {
-      TweenMax.to(`.fa-${type}`, .4, {color:type !== this.state.comp?'#42474b':'#59bd8e'})
-      TweenMax.to(`.p-${type}`, .4, {color:type !== this.state.comp?'#181818':'#59bd8e', opacity: 0}, '-=.4')
-    }
-  } 
-
-  enterMobileNav = () => {
-    TweenMax.to(`.fa-bars`, .4, {color:'#59bd8e'})
-  }
-  leaveMobileNav = () => {
-    TweenMax.to(`.fa-bars`, .4, {color: this.state.mobileNav? '#ffffff' : '#42474b'})
-  }
-  enterNavIcon = () => {
-    TweenMax.to(`.nav_target`, .3, {opacity: 1})
-  }
-  leaveNavIcon = () => {
-    TweenMax.to(`.nav_target`, .3, {opacity: this.state.comp==='home'? 1 : .7})
+    TweenMax.to(`.nav-underline-${comp}`, .4, {width: '100%'})
+    TweenMax.to(`.${comp}-p`, .4, {color: '#BCDEFA', opacity: 0}, '-=.4')
+    TweenMax.to('.nav-target', .4, {opacity: comp==='home'? 1 : .7})
   }
   
-  toggleMobileNav = () => {
-    TweenMax.to('.mobile_nav_buttons', .4, {left: this.state.mobileNav? '100%' : '0px', opacity: this.state.mobileNav? 0 : 1});
+  componentWillReceiveProps = (props) => {
+    const { comp } = props;
+    TweenMax.to(`.nav-underline`, .4, {width: '0%'})
+    TweenMax.to(`.nav-p`, .4, {color: '#BCDEFA'})
+    TweenMax.to(`.${comp}-p`, .4, {color: '#6CB2EB'})
+    TweenMax.to(`.nav-underline-${comp}`, .4, {width: '100%'})
+    TweenMax.to('.nav-target', .4, {opacity: comp==='home'? 1 : .7})
     this.setState({
-      mobileNav: this.state.mobileNav? false : true,
+      comp,
+      animate: true
     })
+  }
+
+  enterNavLink = (type) => {
+    TweenMax.to(`.${type}-p`, .4, {color:'#6CB2EB', opacity: 1}, '-=.4')
+    TweenMax.to(`.nav-underline-${type}`, .4, {width: '100%'}, '-=.4')
+  }
+  leaveNavLink = (type) => {
+    if (this.state.animate) {
+      TweenMax.to(`.${type}-p`, .4, {color: type !== this.state.comp?'#BCDEFA':'#6CB2EB'}, '-=.4')
+      TweenMax.to(`.nav-underline-${type}`, .4, {width: type !== this.state.comp? '0%' : '100%'}, '-=.4')
+    }
+  } 
+  enterNavButtons = (type) => {
+    TweenMax.to(`.fa-${type}`, .4, {color: '#6CB2EB'});
+  }
+  leaveNavButtons = (type) => {
+    TweenMax.to(`.fa-${type}`, .4, {color: '#BCDEFA'});
   }
 
   animateComp = (e, route) => {
@@ -76,78 +59,40 @@ class Nav extends Component {
     if (window.innerWidth <= 500 && this.state.mobileNav) {
       this.toggleMobileNav();
     }
+    this.setState({animate: false})
   }
 
   render = () => {
     return (
       <main className={'Nav'}>
-        <Link onMouseEnter={this.enterNavIcon} onMouseLeave={this.leaveNavIcon} onClick={(e)=>this.animateComp(e, '/')} className="nav_link nav_target" to='/'>
-          <section className="nav_icon">
+        <Link onMouseEnter={this.enterNavIcon} onMouseLeave={this.leaveNavIcon} onClick={(e)=>this.animateComp(e, '/')} className="nav-link nav-target" to='/'>
+          <section className="nav-icon">
             <img height={60} src={Logo} alt="profile logo"/>
           </section>
         </Link>
-        <section className="nav_buttons">
-          <Link onClick={(e)=>this.animateComp(e, '/')} className="nav_link" to='/'>
-            <i onMouseEnter={()=>{this.enterNavButtons('home')}} onMouseLeave={()=>{this.leaveNavButtons('home')}} className="fas fa-lg fa-home">
-              <p className="p-home">HOME</p>
-            </i>
+        <section className="nav-buttons">
+          <Link onClick={(e)=>this.animateComp(e, '/about')} className="nav-link" to='/about'>
+            <p onMouseEnter={()=>{this.enterNavLink('about')}} onMouseLeave={()=>{this.leaveNavLink('about')}} className="nav-p about-p">ABOUT</p>
+            <div className="nav-underline nav-underline-about"/>
           </Link>
-          <Link onClick={(e)=>this.animateComp(e, '/about')} className="nav_link" to='/about'>
-            <i onMouseEnter={()=>{this.enterNavButtons('user')}} onMouseLeave={()=>{this.leaveNavButtons('user')}} className="fas fa-lg fa-user">
-              <p className="p-user">ABOUT</p>
-            </i>
+          <Link onClick={(e)=>this.animateComp(e, '/skills')} className="nav-link" to='/skills'>
+            <p onMouseEnter={()=>{this.enterNavLink('skills')}} onMouseLeave={()=>{this.leaveNavLink('skills')}} className="nav-p skills-p">SKILLS</p>
+            <div className="nav-underline nav-underline-skills"/>
           </Link>
-          <Link onClick={(e)=>this.animateComp(e, '/skills')} className="nav_link" to='/skills'>
-            <i onMouseEnter={()=>{this.enterNavButtons('cog')}} onMouseLeave={()=>{this.leaveNavButtons('cog')}} className="fas fa-lg fa-cog">
-              <p className="p-cog">SKILLS</p>
-            </i>
+          <Link onClick={(e)=>this.animateComp(e, '/projects')} className="nav-link" to='/projects'>
+            <p onMouseEnter={()=>{this.enterNavLink('projects')}} onMouseLeave={()=>{this.leaveNavLink('projects')}} className="nav-p projects-p">PROJECTS</p>
+            <div className="nav-underline nav-underline-projects"/>
           </Link>
-          <Link onClick={(e)=>this.animateComp(e, '/projects')} className="nav_link" to='/projects'>
-            <i onMouseEnter={()=>{this.enterNavButtons('eye')}} onMouseLeave={()=>{this.leaveNavButtons('eye')}} className="fas fa-lg fa-eye">
-              <p className="p-eye">PROJECTS</p>
-            </i>
-          </Link>
-          <Link onClick={(e)=>this.animateComp(e, '/contact')} className="nav_link" to='/contact'>
-            <i onMouseEnter={()=>{this.enterNavButtons('envelope')}} onMouseLeave={()=>{this.leaveNavButtons('envelope')}} className="fas fa-lg fa-envelope">
-              <p className="p-envelope">CONTACT</p>
-            </i>
+          <Link onClick={(e)=>this.animateComp(e, '/contact')} className="nav-link" to='/contact'>
+            <p onMouseEnter={()=>{this.enterNavLink('contact')}} onMouseLeave={()=>{this.leaveNavLink('contact')}} className="nav-p contact-p">CONTACT</p>
+            <div className="nav-underline nav-underline-contact"/>
           </Link>
         </section>
-        <section className="nav_social_media">
-          <a href="https://www.linkedin.com/in/fernandodlv" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('linkedin-nav', true)}} onMouseLeave={()=>{this.leaveNavButtons('linkedin-nav', true)}} className="fab fa-linkedin fa-linkedin-nav"/></a>
-          <a href="https://www.facebook.com/fernandodlv32" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('facebook-nav', true)}} onMouseLeave={()=>{this.leaveNavButtons('facebook-nav', true)}} className="fab fa-facebook fa-facebook-nav"/></a>
-          <a href="https://www.instagram.com/f.dlv" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('instagram-nav', true)}} onMouseLeave={()=>{this.leaveNavButtons('instagram-nav', true)}} className="fab fa-instagram fa-instagram-nav"/></a>
-          <a href="https://github.com/ClassyFD" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('github-nav', true)}} onMouseLeave={()=>{this.leaveNavButtons('github-nav', true)}} className="fab fa-github fa-github-nav"/></a>
-        </section>
-        <section className="nav_mobile">
-          <i onMouseEnter={this.enterMobileNav} onMouseLeave={this.leaveMobileNav} onClick={this.toggleMobileNav} className="fas fa-2x fa-bars"/>
-        </section>
-        <section className="mobile_nav_buttons">
-          <Link onClick={(e)=>this.animateComp(e, '/')} className="nav_link" to='/'>
-            <i onMouseEnter={()=>{this.enterNavButtons('home')}} onMouseLeave={()=>{this.leaveNavButtons('home')}} className="fas fa-lg fa-home">
-              <p className="p-home">HOME</p>
-            </i>
-          </Link>
-          <Link onClick={(e)=>this.animateComp(e, '/about')} className="nav_link" to='/about'>
-            <i onMouseEnter={()=>{this.enterNavButtons('user')}} onMouseLeave={()=>{this.leaveNavButtons('user')}} className="fas fa-lg fa-user">
-              <p className="p-user">ABOUT</p>
-            </i>
-          </Link>
-          <Link onClick={(e)=>this.animateComp(e, '/skills')} className="nav_link" to='/skills'>
-            <i onMouseEnter={()=>{this.enterNavButtons('cog')}} onMouseLeave={()=>{this.leaveNavButtons('cog')}} className="fas fa-lg fa-cog">
-              <p className="p-cog">SKILLS</p>
-            </i>
-          </Link>
-          <Link onClick={(e)=>this.animateComp(e, '/projects')} className="nav_link" to='/projects'>
-            <i onMouseEnter={()=>{this.enterNavButtons('eye')}} onMouseLeave={()=>{this.leaveNavButtons('eye')}} className="fas fa-lg fa-eye">
-              <p className="p-eye">PROJECTS</p>
-            </i>
-          </Link>
-          <Link onClick={(e)=>this.animateComp(e, '/contact')} className="nav_link" to='/contact'>
-            <i onMouseEnter={()=>{this.enterNavButtons('envelope')}} onMouseLeave={()=>{this.leaveNavButtons('envelope')}} className="fas fa-lg fa-envelope">
-              <p className="p-envelope">CONTACT</p>
-            </i>
-          </Link>
+        <section className="nav-social-media">
+          <a href="https://www.linkedin.com/in/fernandodlv" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('linkedin-nav')}} onMouseLeave={()=>{this.leaveNavButtons('linkedin-nav')}} className="fab fa-linkedin fa-linkedin-nav"/></a>
+          <a href="https://www.facebook.com/fernandodlv32" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('facebook-nav')}} onMouseLeave={()=>{this.leaveNavButtons('facebook-nav')}} className="fab fa-facebook fa-facebook-nav"/></a>
+          <a href="https://www.instagram.com/f.dlv" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('instagram-nav')}} onMouseLeave={()=>{this.leaveNavButtons('instagram-nav')}} className="fab fa-instagram fa-instagram-nav"/></a>
+          <a href="https://github.com/ClassyFD" rel="noopener noreferrer" target="_blank"><i onMouseEnter={()=>{this.enterNavButtons('github-nav')}} onMouseLeave={()=>{this.leaveNavButtons('github-nav')}} className="fab fa-github fa-github-nav"/></a>
         </section>
       </main>
     )

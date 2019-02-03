@@ -16,7 +16,7 @@ class About extends Component {
   }
 
   componentWillMount = () => {
-    this.props.setMountedComp('user');
+    this.props.setMountedComp('about');
   }
   componentDidMount = () => {
     const tl = new TimelineMax(); // heading

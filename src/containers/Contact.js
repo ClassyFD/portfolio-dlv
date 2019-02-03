@@ -25,7 +25,7 @@ class Contact extends Component {
   }
 
   componentWillMount = () => {
-    this.props.setMountedComp('envelope');
+    this.props.setMountedComp('contact');
   }
 
   componentDidMount = () => {

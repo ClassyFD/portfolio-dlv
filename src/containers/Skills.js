@@ -31,7 +31,7 @@ class Skills extends Component {
   }
 
   componentWillMount = () => {
-    this.props.setMountedComp('cog');
+    this.props.setMountedComp('skills');
   }
   
   componentDidMount = () => {

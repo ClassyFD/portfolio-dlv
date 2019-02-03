@@ -13,9 +13,7 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      introText1: "Hi,",
-      introText2: "I'm Fernando,",
-      introText3: "web developer.",
+      
     }
   }
 
@@ -23,174 +21,29 @@ class Home extends Component {
     this.props.setMountedComp('home');
   }
 
-  componentDidMount = () => {
+  componentDidMount = () => {   
     const tl = new TimelineMax();
-    const ptl = new TimelineMax();
-    const sptl = new TimelineMax();
-    const btl = new TimelineMax();
-    const ltl = new TimelineMax();
-    let largeFont = '54px';
-    let smallFont = '48px';
-
-    tl.staggerFrom('.home_it1', 1, {opacity: 0}, .05, '+=.3')
-      .staggerTo('.home_it1', .1, {color: '#59bd8e'}, .05, '-=1.4')
-      .staggerTo('.home_it1', .3, {fontSize: largeFont, ease: Power1.easeOut}, .05, '-=1.4')
-      .staggerTo('.home_it1', .5, {color:'#ffffff'}, .03, '-=1')
-      .staggerTo('.home_it1', .5, {fontSize: smallFont, ease: Power1.easeOut}, .03, '-=1');
+    tl.to('tl-delay', .3, {opacity: 0})
+      .to('.home-searching', .4, {opacity: 1})
+      .staggerTo('.home-slide', .4, {left: 0, opacity: 1}, .4)
+      // .from('.span-e', .4, {left: 100, top: 0})
+      // .from('.span-e2', .4, {left: 127, top: 0}, '-=.4')
       
-    tl.staggerFrom('.home_it2', 1, {opacity: 0}, .05, '-=.6')
-      .staggerTo('.home_it2', .1, {color: '#59bd8e'}, .05, '-=1.6')
-      .staggerTo('.home_it2', .3, {fontSize: largeFont, ease: Power1.easeOut}, .05, '-=1.6')
-      .staggerTo('.home_it2', .5, {color:'#ffffff'}, .03, '-=1.3')
-      .staggerTo('.home_it2', .5, {fontSize: smallFont, ease: Power1.easeOut}, .03, '-=1.3');
-
-    tl.staggerFrom('.home_it3', 1, {opacity: 0}, .05, '-=.8')
-      .staggerTo('.home_it3', .1, {color: '#59bd8e'}, .05, '-=1.9')
-      .staggerTo('.home_it3', .3, {fontSize: largeFont, ease: Power1.easeOut}, .05, '-=1.9')
-      .staggerTo('.home_it3', .5, {color:'#ffffff'}, .03, '-=1.4')
-      .staggerTo('.home_it3', .5, {fontSize: smallFont, ease: Power1.easeOut}, .04, '-=1.4');
-
-    ptl.from('.home_p', 1, {opacity: 0}, '+=2');
-    sptl.from('.home_h1_span', 1, {opacity: 0}, '+=2');
-    ltl.from('.home_logo', 1, {opacity: 0}, '+=2')
-    btl.from('.home_button', 1, {opacity: 0}, '+=2')
-      .from('.home_button_span', 1, {opacity: 0}, '-=1');
-
-    this.windowResize();
-    window.onresize = debounce(this.windowResize, 50, 200);
-  }
-
-  windowResize = () => {
-    let logoHeight;
-    let logoLeft;
-    let ease = Power1.easeOut;
-    let logoStyle;
-    const innerWidth = window.innerWidth;
-    if (innerWidth >= 1290) {
-      logoHeight = 500;
-      logoLeft = '55%';
-    }
-    if (innerWidth < 1290) {
-      logoHeight = 500;
-      logoLeft = '55%';
-    }
-    if (innerWidth < 1188) {
-      logoHeight = 400;
-      logoLeft = '55%';
-    }
-    if (innerWidth < 1000) {
-      logoLeft = '60%';
-    }
-    if (innerWidth < 850) {
-      logoLeft = '65%';
-      logoHeight = 300;
-    }
-    if (innerWidth < 740) {
-      logoHeight = 200;
-    }
-
-    logoStyle = {
-      height: logoHeight,
-      left: logoLeft,
-      ease
-    }
-    if (logoHeight) {
-      TweenMax.to('.home_logo', .3, logoStyle)
-    }
-    let introLeft;
-    let introStyle;
-    let introPadding;
-
-    if (innerWidth >= 1100) {
-      introLeft = 0;
-      introPadding = '0 0 0 100px'
-    }
-    if (innerWidth < 1100) {
-      introLeft = -50;
-      introPadding = '0 0 0 100px'
-    }
-    if (innerWidth < 740) {
-      introLeft = -90;
-      introPadding = '0 0 0 100px'
-    }
-    if (innerWidth <= 600) {
-      introLeft = 0;
-      introPadding = '0 0 0 0px'
-    }
-    if (innerWidth < 480) {
-      introLeft = 0;
-      introPadding = '0 0 0 0px'
-    }
-    introStyle = {
-      left: introLeft,
-      padding: introPadding,
-      ease,
-    }
-    TweenMax.to('.home_intro_section', .3, introStyle);
-  }
-
-  enterIT = (type, index) => {
-    const tl = new TimelineMax();
-    tl.to(`.home_${type}_${index}`, .1, {color: '#59bd8e'});
-    tl.to(`.home_${type}_${index}`, .3, {fontSize: '56px', color: '#59bd8e', ease: Power1.easeOut}, '-=.1');
-  } 
-  leaveIT = (type, index) => {
-    const tl = new TimelineMax();
-    tl.to(`.home_${type}_${index}`, .5, {color:'#ffffff'});
-    tl.to(`.home_${type}_${index}`, .5, {fontSize: '48px', ease: Power1.easeOut}, '-=.3');
-  }
-  enterButton = () => {
-    TweenMax.to('.home_button', .3, {backgroundColor: '#59bd8e', color: 'white'});
-  }
-  leaveButton = () => {
-    TweenMax.to('.home_button', .3, {backgroundColor: 'transparent', color: '#59bd8e'});
   }
 
   render = () => {
     const { state } = this;
-    let introText1;
-    let introText2;
-    let introText3;
-    introText1 = state.introText1.split('');
-    introText1 = introText1.map((el, i)=>{
-      return (
-        <h1 key={i} onMouseEnter={()=>{this.enterIT('it1', i)}} onMouseLeave={()=>{this.leaveIT('it1', i)}} className={` home_it home_it1 home_it1_${i}`}>{el}</h1>
-      )
-    })
-    introText2 = state.introText2.split('');
-    introText2 = introText2.map((el, i)=>{
-      return (
-        <h1 key={i} onMouseEnter={()=>{this.enterIT('it2', i)}} onMouseLeave={()=>{this.leaveIT('it2', i)}} className={` home_it home_it2 home_it2_${i}`}>{el}{el===' ' ? '\xa0':''}</h1>
-      )
-    })
-    introText3 = state.introText3.split('');
-    introText3 = introText3.map((el, i)=>{
-      return (
-        <h1 key={i} onMouseEnter={()=>{this.enterIT('it3', i)}} onMouseLeave={()=>{this.leaveIT('it3', i)}} className={` home_it home_it3 home_it3_${i}`}>{el}{el===' ' ? '\xa0':''}</h1>
-      )
-    })
-
     return (
       <main className={'Home'}>
-        <section className="home_intro_section">
-          <span className="home_h1_span">{"<h1>"}</span>
-          <aside>{introText1}</aside>
-          <aside>{introText2}</aside>
-          <aside>{introText3}</aside>
-          <span className="home_h1_span">{"<h1/>"}</span>
-          <p className="home_p">
-            <span className="home_p_span">{"<p>"}</span>
-            &nbsp; ReactJS / NodeJS / HTML5 / CSS3 / JS &nbsp;
-            <span className="home_p_span">{"</p>"}</span>
-          </p>
-          <div>
-            <span className="home_button_span">{"<button>"}</span>
-            <Link className="home_link" to="/projects"><button className="home_button" onMouseEnter={this.enterButton} onMouseLeave={this.leaveButton}>V I E W  &nbsp;&nbsp; P R O J E C T S</button></Link>
-            <span className="home_button_span">{"</button>"}</span>
-          </div>
+        <section className="home-intro-section">
+          <h2 className="home-h2 home-searching">Searching for a</h2>
+          <h2 className="home-h2 home-slide home-motivated"><span className="home-span span-m">m</span>otivated</h2>
+          <h2 className="home-h2 home-slide home-eager"><span className="home-span span-e">e</span>fficient</h2>
+          <h2 className="home-h2 home-slide home-efficient"><span className="home-span span-e2">e</span>nthusiastic</h2>
+          <h2 className="home-h2 home-slide home-thinker"><span className="home-span span-t">t</span>hinker?</h2>
+          <h2 className="home-h2 home-meet">meet</h2>
+          <h2 className="home-h2 home-fernando">Fernando.</h2>
         </section>
-        <img alt="home logo" className="home_logo" src={FLogo}/>
-        {/* <TestLogo className="home_logo"/> */}
       </main>
     )
   }

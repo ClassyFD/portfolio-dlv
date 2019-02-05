@@ -18,7 +18,6 @@
   font-family: tbb;
   cursor: pointer;
   user-select: none;
-  margin-left: 35px;
 }
 
 .nav-buttons {
@@ -47,6 +46,7 @@
 .nav-link {
   text-decoration: none;
   position: relative;
+  margin-left: 35px;
 }
 
 .nav-social-media {

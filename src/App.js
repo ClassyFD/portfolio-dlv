@@ -14,6 +14,7 @@ class App extends Component {
       <div className="App">
         <Nav/>
         <main className="app-main-container">
+          <div className="app-animation-bg"/>
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route path="/about" component={About}/>

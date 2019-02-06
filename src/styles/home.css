@@ -1,6 +1,6 @@
 .Home {
   display: flex;
-  /* overflow-x: hidden; */
+  height: 400px;
 }
 .home-intro-article {
   width: 40%;
@@ -101,7 +101,7 @@
 .home-soft-skills-section {
   position: relative;
   width: 30%;
-  top: 25vh;
+  /* top: 25vh; */
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;

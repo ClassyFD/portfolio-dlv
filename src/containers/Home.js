@@ -6,6 +6,10 @@ import '../styles/home.css';
 import AnimateHOC from '../hocs/Animate';
 import clone from 'clone';
 
+const homeTL = new TimelineMax();
+const mountTL = new TimelineMax();
+let _isMounted;
+
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -38,8 +42,8 @@ class Home extends Component {
   }
 
   componentDidMount = () => {
-    const tl = new TimelineMax();
-    tl.to('tl-delay', .3, {opacity: 0})
+    _isMounted = true;
+    mountTL.to('tl-delay', .3, {opacity: 0})
       .staggerTo('.home-slide', .4, {left: 0, opacity: 1}, .6)
       .to('.home-span', 0, {opacity: 1})
       .to('.home-m-span', 0, {opacity: 1})
@@ -52,7 +56,11 @@ class Home extends Component {
       .to('.home-paragraph', .4, {opacity: 1}, '-=1')
       .to('.home-button-container', 0, {display: 'flex'}, '-=1')
       .to('.home-button-container', .4, {opacity: 1}, '-=1')
-      .call(()=>{this.animateSoftSkills()}, null, null, '-=.5')
+      if (_isMounted) {
+      mountTL.call(()=>{
+          this.animateSoftSkills()
+        }, null, null, '-=.5')
+      }
   }
 
   animateSoftSkills = () => {
@@ -60,18 +68,21 @@ class Home extends Component {
     const softSkillLength = softSkill.length;
     if (softSkillLength > 0) {
       const randNum = Math.floor(Math.random() * softSkillLength-1) + 1;
-      const tl = new TimelineMax();
       const key = softSkill[randNum].key.split('-')[0]
       const homeSkill = `.home-soft-skill-${key}`;
       const skillSVG = `.soft-skill-svg-${key}`;
-      tl.to(homeSkill, 0, {display: 'flex'})
+      homeTL.to(homeSkill, 0, {display: 'flex'})
         .to(homeSkill, 1, {opacity: 1})
         .to(homeSkill, 1, {height: 50, ease:Elastic.easeOut}, '-=1')
         .to(homeSkill, .5, {bottom: 50}, '-=1')
         .to(skillSVG, .5, {strokeDashoffset: 50}, '-=.3')
         .to(homeSkill, 1, {rotation: 90, right: -200, bottom:50, opacity: 0})
         .to(homeSkill, 0, {right: 0, bottom: 0, rotation: 0, display: 'none'})
-        .call(()=>{finishAnimation()});
+        if (_isMounted) {
+          homeTL.call(()=>{
+            finishAnimation()
+          })
+        }
       const finishAnimation = () => {
         let newSoftSkills1 = clone(this.state.softSkills1);
         let newSoftSkills2 = clone(this.state.softSkills2);
@@ -90,6 +101,12 @@ class Home extends Component {
         softSkillOption: this.state.softSkillOption===1? 2 : 1
       }, ()=>this.animateSoftSkills())
     }
+  }
+
+  componentWillUnmount = () => {
+    homeTL.clear()
+    mountTL.clear();
+    _isMounted = false;
   }
 
   enterButton = (type) => {

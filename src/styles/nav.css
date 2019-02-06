@@ -7,6 +7,9 @@
   justify-content: space-between;
   align-items: center;
   z-index: 20;
+  background: #22292F;
+  border-bottom: .5px solid black;
+  box-shadow: 0px 0px 4px 0px #BCDEFA;
 }
 
 .nav-icon {
@@ -18,6 +21,7 @@
   font-family: tbb;
   cursor: pointer;
   user-select: none;
+  opacity: .7;
 }
 
 .nav-buttons {
@@ -37,10 +41,6 @@
   height: 2px;
   background: #BCDEFA;
   position: absolute;
-}
-
-.nav-target {
-  opacity: .7;
 }
 
 .nav-link {

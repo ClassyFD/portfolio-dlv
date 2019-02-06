@@ -23,10 +23,6 @@ const AnimateHOC = () => {
         }
       }
 
-      componentWillUnmount = () => {
-        window.onresize = null
-      }
-
       render = () => {
         return (
           <main className="animate-hoc">

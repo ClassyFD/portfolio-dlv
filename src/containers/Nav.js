@@ -20,16 +20,16 @@ class Nav extends Component {
     const { comp } = this.state;
     TweenMax.to(`.nav-underline-${comp}`, .4, {width: '100%'})
     TweenMax.to(`.${comp}-p`, .4, {color: '#BCDEFA', opacity: 0}, '-=.4')
-    TweenMax.to('.nav-target', .4, {opacity: comp==='home'? 1 : .7})
+    TweenMax.to('.nav-icon', .4, {opacity: comp==='home'? 1 : .7})
   }
   
   componentWillReceiveProps = (props) => {
     const { comp } = props;
+    TweenMax.to('.nav-icon', .4, {opacity: comp==='home'? 1 : .7})
     TweenMax.to(`.nav-underline`, .4, {width: '0%'})
     TweenMax.to(`.nav-p`, .4, {color: '#BCDEFA'})
     TweenMax.to(`.${comp}-p`, .4, {color: '#6CB2EB'})
     TweenMax.to(`.nav-underline-${comp}`, .4, {width: '100%'})
-    TweenMax.to('.nav-target', .4, {opacity: comp==='home'? 1 : .7})
     this.setState({
       comp,
       animate: true
@@ -52,14 +52,22 @@ class Nav extends Component {
   leaveNavButtons = (type) => {
     TweenMax.to(`.fa-${type}`, .4, {color: '#BCDEFA'});
   }
+  enterNavIcon = () => {
+    TweenMax.to('.nav-icon', .4, {opacity: 1})
+  }
+  leaveNavIcon = () => {
+    if (this.props.comp !== 'home') {
+      TweenMax.to('.nav-icon', .4, {opacity: .7})
+    }
+  }
 
   animateComp = (e, route) => {
     e.preventDefault();
     this.props.setAnimatedComp(route);
+    this.setState({animate: false})
     if (window.innerWidth <= 500 && this.state.mobileNav) {
       this.toggleMobileNav();
     }
-    this.setState({animate: false})
   }
 
   render = () => {

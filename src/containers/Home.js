@@ -22,17 +22,52 @@ class Home extends Component {
 
   componentWillMount = () => {
     this.props.setMountedComp('home');
-    const softSkills = ['Leadership', 'Critical thinking', 'Communication', 'Patience', 'Problem solving', 'Accountability', 'Creativity', 'Motivated', 'Efficient', 'Enthusiastic', 'Curiosity', 'Thinker', 'Disciplined'];
+    const softSkills = [
+      'Leadership', 
+      'Teamwork',
+      'Communication', 
+      'Coffee addiction',
+      'Piano playing',
+      'Love for fitness',
+      'Critical thinking', 
+      'Patience', 
+      'Problem solving', 
+      'Accountability', 
+      'Creativity', 
+      'Motivation', 
+      'Efficiency', 
+      'Enthusiasm', 
+      'Curiosity', 
+      'Discipline', 
+      'Eager-to-learn',
+    ];
     const softSkillElements = softSkills.map((ssEL, ssIndex)=>{
       return (
-        <div onClick={()=>{this.clickSoftSkill(ssIndex)}} onMouseLeave={()=>{this.leaveSoftSkill(ssIndex)}} onMouseEnter={()=>{this.enterSoftSkill(ssIndex)}} key={`${ssIndex}-soft-skill`} className={`home-soft-skill home-soft-skill-${ssIndex}`}>
+        <div key={`${ssIndex}-soft-skill`} className={`home-soft-skill home-soft-skill-${ssIndex}`}>
           <svg key={`${ssIndex}-soft-skill-svg-2`} style={{position: 'absolute'}} stroke="black" strokeWidth="3" strokeDasharray="100" strokeDashoffset="100" fill="none" className={`soft-skill-svg-${ssIndex}`}>
             <path d="M210 50 L220 60, 240 40"></path>
           </svg>
           <svg key={`${ssIndex}-soft-skill-svg`} style={{position: 'absolute'}} stroke="#0ec704" strokeWidth="2" strokeDasharray="100" strokeDashoffset="100" fill="none" className={`soft-skill-svg-${ssIndex}`}>
             <path d="M210 50 L220 60, 240 40"></path>
           </svg>
-          <p key={`${ssIndex}-soft-skill-p`} style={{flexWrap: 'nowrap'}}>{ssEL}</p>
+          <p 
+            onClick={()=>{this.clickSoftSkill(ssIndex)}} 
+            onMouseLeave={()=>{this.leaveSoftSkill(ssIndex)}} 
+            onMouseEnter={()=>{this.enterSoftSkill(ssIndex)}} 
+            key={`${ssIndex}-soft-skill-p home-soft-skill-p`} 
+            style={{
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              flexWrap: 'nowrap', 
+              position:'relative', 
+              zIndex: 10, 
+              width: 200,
+              height: 100,
+              cursor: 'pointer'
+            }}>
+            {ssEL}
+          </p>
         </div>
       )
     })
@@ -73,10 +108,10 @@ class Home extends Component {
       const skillSVG = `.soft-skill-svg-${key}`;
       homeTL.to(homeSkill, 0, {display: 'flex'})
         .to(homeSkill, 1, {opacity: 1})
-        .to(homeSkill, 1, {height: 50, ease:Elastic.easeOut}, '-=1')
+        .to(homeSkill, 1, {height: 100, ease:Elastic.easeOut}, '-=1')
         .to(homeSkill, .5, {bottom: 50}, '-=1')
         .to(skillSVG, .5, {strokeDashoffset: 50}, '-=.3')
-        .to(homeSkill, 1, {rotation: 90, right: -200, bottom:50, opacity: 0})
+        .to(homeSkill, 1, {right: -300, opacity: 0, ease: Power4.easeOut})
         .to(homeSkill, 0, {right: 0, bottom: 0, rotation: 0, display: 'none'})
         if (_isMounted) {
           homeTL.call(()=>{
@@ -124,17 +159,17 @@ class Home extends Component {
   }
 
   enterSoftSkill = (type) => {
-    TweenMax.to(`.home-soft-skill-${type}`, .5, {backgroundColor: 'transparent'})
-    TweenMax.to(`.home-soft-skill-${type}`, .5, {color: '#BCDEFA'})
+    TweenMax.to(`.home-soft-skill-${type}`, .5, {backgroundColor: '#80ceb9'})
+    TweenMax.to(`.home-soft-skill-${type}`, .5, {color: 'black'})
   }
   leaveSoftSkill = (type) => {
-    TweenMax.to(`.home-soft-skill-${type}`, .5, {backgroundColor: '#6CB2EB'})
-    TweenMax.to(`.home-soft-skill-${type}`, .5, {color: 'black'})
+    TweenMax.to(`.home-soft-skill-${type}`, .5, {backgroundColor: '#161b1f'})
+    TweenMax.to(`.home-soft-skill-${type}`, .5, {color: '#BCDEFA'})
   }
   clickSoftSkill = (type) => {
     const tl = new TimelineMax();
-    tl.to(`.home-soft-skill-${type}`, .1, {height: 30})
-      .to(`.home-soft-skill-${type}`, 1, {height: 50, ease: Elastic.easeOut});
+    tl.to(`.home-soft-skill-${type}`, .1, {height: 50})
+      .to(`.home-soft-skill-${type}`, 1, {height: 100, ease: Elastic.easeOut});
   }
 
   render = () => {
@@ -146,7 +181,7 @@ class Home extends Component {
           <header className="home-header">
             <h2 className="home-h2 home-slide home-motivated">Motivated</h2>
             <h2 className="home-h2 home-slide home-efficient">efficient</h2>
-            <h2 className="home-h2 home-slide home-enthusiastic">enthusiastic</h2>
+            <h2 className="home-h2 home-slide home-enthusiastic">eager-to-learn</h2>
             <h2 className="home-h2 home-slide home-thinker">thinker.</h2>
             <h2 className="home-h2 home-meet">
               <span className="home-m-span">M</span>

@@ -5,9 +5,10 @@
 .about-left-side {
   display: flex;
   width: 200px;
-  height: 100vh - 70px;
+  height: calc(100vh - 70px);
   position: fixed;
   justify-content: center;
+  background: #161b1f;
 }
 .about-left-border {
   height: 100vh;
@@ -21,7 +22,6 @@
   color: #BCDEFA;
   padding: 20px;
   font-size: 20px;
-  text-decoration: underline
 }
 .about-article {
   margin-left: 300px;

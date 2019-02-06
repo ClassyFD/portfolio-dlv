@@ -20,16 +20,17 @@
   width: 375px;
   font-size: 60px;
   line-height: 0;
+  white-space: nowrap;
   position: relative;
 }
 .home-efficient, .home-e-span {
-  top: 50px;
+  top: 60px;
 }
 .home-enthusiastic, .home-e2-span {
-  top: 100px;
+  top: 115px;
 }
 .home-thinker, .home-t-span {
-  top: 150px;
+  top: 180px;
 }
 .home-slide {
   left: 100px;
@@ -54,13 +55,13 @@
   display: none;
 }
 .home-button {
-  background: none;
-  border: .5px solid black;
-  border-radius: 10px;
+  background: #161b1f;
   color: #bcdefa;
+  box-shadow: 0px 0px 2px 1px #BCDEFA;
+  border: .5px solid black;
+  border-radius: 5px;
   padding: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  box-shadow: 0px 0px 4px 1px #BCDEFA;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -68,21 +69,22 @@
   height: 38.6px;
   display: flex;
   align-items: center;
+  outline: none;
 }
 .home-button:nth-of-type(2) {
   margin-left: 10px;
 }
 .home-button-bg-projects {
-  background: #6CB2EB;
+  background: #80ceb9;
   width: 130px;
-  height: 130px;
+  height: 135px;
   position: absolute;
   left: -120px;
   top: 30px;
   transform: rotate(45deg);
 }
 .home-button-bg-resume {
-  background: #6CB2EB;
+  background: #80ceb9;
   width: 150px;
   height: 150px;
   position: absolute;
@@ -101,7 +103,6 @@
 .home-soft-skills-section {
   position: relative;
   width: 30%;
-  /* top: 25vh; */
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -109,22 +110,21 @@
 .home-soft-skill {
   position: absolute;
   font-size: 16px;
-  padding: 10px;
   flex-wrap: nowrap;
   height: 0px;
+  margin: 0;
   width: 150px;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: bold;
-  color: black;
+  color: #BCDEFA;
+  border-radius: 5px;
   border: .5px solid black;
   box-shadow: 0px 0px 4px 1px #BCDEFA;
   opacity: 0;
   display: none;
-  background: #6CB2EB;
-  cursor: pointer;
+  background: #161b1f;
 }
 
 @media (max-width:1000px) {

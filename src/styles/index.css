@@ -26,15 +26,3 @@ p {
   overflow: hidden;
   height: calc(100vh - 70px);
 }
-.app-animation-bg {
-  width: 250vw;
-  height: 250vh;
-  position: absolute;
-  z-index: 0;
-  background: #6CB2EB;
-  transform: rotate(45deg);
-  /* top: -80vh;
-  left: -80vw; */
-  left: -150vw;
-  top: 150vh;
-}

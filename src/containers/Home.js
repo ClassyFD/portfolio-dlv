@@ -26,7 +26,7 @@ class Home extends Component {
       'Leadership', 
       'Teamwork',
       'Communication', 
-      'Coffee addiction',
+      'Coffee addiction', 
       'Piano playing',
       'Love for fitness',
       'Critical thinking', 
@@ -44,10 +44,13 @@ class Home extends Component {
     const softSkillElements = softSkills.map((ssEL, ssIndex)=>{
       return (
         <div key={`${ssIndex}-soft-skill`} className={`home-soft-skill home-soft-skill-${ssIndex}`}>
-          <svg key={`${ssIndex}-soft-skill-svg-2`} style={{position: 'absolute'}} stroke="black" strokeWidth="3" strokeDasharray="100" strokeDashoffset="100" fill="none" className={`soft-skill-svg-${ssIndex}`}>
-            <path d="M210 50 L220 60, 240 40"></path>
+          <div className="soft-skill-bg-container">
+            <div className={`soft-skill-bg-${ssIndex} soft-skill-bg`}/>
+          </div>
+          <svg key={`${ssIndex}-soft-skill-svg-2`} style={{position: 'absolute'}} stroke="black" strokeWidth="4" strokeDasharray="100" strokeDashoffset="100" fill="none" className={`soft-skill-svg-${ssIndex} soft-skill-svg-2-${ssIndex}`}>
+            <path d="M209 49 L220 60, 241 39"></path>
           </svg>
-          <svg key={`${ssIndex}-soft-skill-svg`} style={{position: 'absolute'}} stroke="#0ec704" strokeWidth="2" strokeDasharray="100" strokeDashoffset="100" fill="none" className={`soft-skill-svg-${ssIndex}`}>
+          <svg key={`${ssIndex}-soft-skill-svg`} style={{position: 'absolute'}} stroke="#BCDEFA" strokeWidth="2" strokeDasharray="100" strokeDashoffset="100" fill="none" className={`soft-skill-svg-${ssIndex} soft-skill-svg-1-${ssIndex}`}>
             <path d="M210 50 L220 60, 240 40"></path>
           </svg>
           <p 
@@ -159,12 +162,17 @@ class Home extends Component {
   }
 
   enterSoftSkill = (type) => {
-    TweenMax.to(`.home-soft-skill-${type}`, .5, {backgroundColor: '#80ceb9'})
     TweenMax.to(`.home-soft-skill-${type}`, .5, {color: 'black'})
+    TweenMax.to(`.soft-skill-bg-${type}`, 2, {top: -75, left: -15, ease: Elastic.easeOut})
+    TweenMax.to(`.soft-skill-svg-1-${type}`, .3, {stroke: 'black'})
+    TweenMax.to(`.soft-skill-svg-2-${type}`, .3, {stroke: '#BCDEFA'})
   }
   leaveSoftSkill = (type) => {
-    TweenMax.to(`.home-soft-skill-${type}`, .5, {backgroundColor: '#161b1f'})
+    TweenMax.to(`.home-soft-skill-${type}`, .5, {backgroundColor: '#1b2125'})
     TweenMax.to(`.home-soft-skill-${type}`, .5, {color: '#BCDEFA'})
+    TweenMax.to(`.soft-skill-bg-${type}`, .3, {top: 90, left: -190, ease: Power4.easeOut})
+    TweenMax.to(`.soft-skill-svg-2-${type}`, .3, {stroke: 'black'})
+    TweenMax.to(`.soft-skill-svg-1-${type}`, .3, {stroke: '#BCDEFA'})
   }
   clickSoftSkill = (type) => {
     const tl = new TimelineMax();

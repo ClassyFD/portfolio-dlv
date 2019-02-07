@@ -27,8 +27,8 @@ class Nav extends Component {
     const { comp } = props;
     TweenMax.to('.nav-icon', .4, {opacity: comp==='home'? 1 : .7})
     TweenMax.to(`.nav-underline`, .4, {width: '0%'})
-    TweenMax.to(`.nav-p`, .4, {color: '#BCDEFA'})
-    TweenMax.to(`.${comp}-p`, .4, {color: '#6CB2EB'})
+    TweenMax.to(`.nav-p`, .4, {color: 'white'})
+    TweenMax.to(`.${comp}-p`, .4, {color: '#BCDEFA'})
     TweenMax.to(`.nav-underline-${comp}`, .4, {width: '100%'})
     this.setState({
       comp,
@@ -37,20 +37,20 @@ class Nav extends Component {
   }
 
   enterNavLink = (type) => {
-    TweenMax.to(`.${type}-p`, .4, {color:'#6CB2EB', opacity: 1}, '-=.4')
+    TweenMax.to(`.${type}-p`, .4, {color:'#BCDEFA', opacity: 1}, '-=.4')
     TweenMax.to(`.nav-underline-${type}`, .4, {width: '100%'}, '-=.4')
   }
   leaveNavLink = (type) => {
     if (this.state.animate) {
-      TweenMax.to(`.${type}-p`, .4, {color: type !== this.state.comp?'#BCDEFA':'#6CB2EB'}, '-=.4')
+      TweenMax.to(`.${type}-p`, .4, {color: type !== this.state.comp?'white':'#BCDEFA'}, '-=.4')
       TweenMax.to(`.nav-underline-${type}`, .4, {width: type !== this.state.comp? '0%' : '100%'}, '-=.4')
     }
   } 
   enterNavButtons = (type) => {
-    TweenMax.to(`.fa-${type}`, .4, {color: '#6CB2EB'});
+    TweenMax.to(`.fa-${type}`, .4, {color: '#BCDEFA'});
   }
   leaveNavButtons = (type) => {
-    TweenMax.to(`.fa-${type}`, .4, {color: '#BCDEFA'});
+    TweenMax.to(`.fa-${type}`, .4, {color: 'white'});
   }
   enterNavIcon = () => {
     TweenMax.to('.nav-icon', .4, {opacity: 1})

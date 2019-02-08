@@ -151,54 +151,7 @@ class About extends Component {
           <div className="about-article-section-container">
             {aboutArticleSections}
             <section className="about-article-section-screen">
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
-            <h1>asdf</h1>
+              <div className="article-screen-close-button">x</div>
             </section>
           </div>
           {/* <section className="about-intro-section">

@@ -5,6 +5,7 @@
 }
 .about-left-side {
   display: flex;
+  margin-top: 2px;
   width: 200px;
   height: calc(100vh - 70px);
   position: fixed;
@@ -12,14 +13,8 @@
   background: #161b1f;
   flex-direction: column;
 }
-.about-heading {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: #BCDEFA;
-  padding: 15px;
-  font-size: 22px;
-}
 .about-h2 {
-  color: #80ceb9;
+  color: #BCDEFA;
   font-size: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 10px;
@@ -54,6 +49,7 @@
   border: .5px solid black;
   border-radius: 5px;
   margin-top: 25px;
+  margin-bottom: 10px;
 }
 .about-article {
   display: flex;
@@ -71,6 +67,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  z-index: 10;
 }
 .about-article-section-container {
   padding: 10px;
@@ -83,24 +80,62 @@
 .about-article-title {
   font-size: 32px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: white;
+  color: #BCDEFA;
   text-align: center;
 }
 .about-article-section-screen {
   position: absolute;
-  min-height: 250px;
+  height: 250px;
   width: 250px;
   border-radius: 5px;
   background: #161b1f;
   left: 0;
   top: 0;
+  opacity: 0;
+  z-index: 5;
 }
 .article-screen-close-button {
   position: absolute;
   right: 20px;
-  top: 10px;
+  top: 5px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: bold;
   font-size: 24px;
   color: white;
+}
+.article-selected-container {
+  width: 100%;
+  display: none;
+  opacity: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 20px;
+  margin-bottom: -20px;
+  padding-bottom: 30px;
+}
+.article-selected-container h2 {
+  font-size: 26px;
+  color: #BCDEFA;
+  margin: 5px;
+  padding-right: 20px;
+}
+.article-selected-container h3 {
+  font-size: 20px;
+  color: #BCDEFA;
+  margin: 0px;
+  margin-left: 15px;
+  padding-right: 20px;
+}
+.article-selected-container p {
+  font-size: 18px;
+  color: white;
+  margin: 15px;
+  padding-right: 20px;
+}
+.article-selected-container a {
+  color: #BCDEFA;
+}
+.article-selected-paragraphs-title {
+}
+.article-selected-paragraphs-content {
+  
 }

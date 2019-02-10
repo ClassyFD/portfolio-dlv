@@ -19,7 +19,7 @@ class Skills extends Component {
         'ExpressJS', 'Amazon Web Services', 'Google Cloud Platform', 'Firebase', 
         'RESTful APIs', 'Chrome Extension Development', 'Greensock Animating Platform',
         'NGINX', 'Linux/Unix administration', 'Python', 'Git/Github', 'jQuery',
-        'Bootstrap', 'Auth0', 'StripeJS'
+        'Bootstrap', 'Auth0', 'StripeJS', 'GraphQL', 'ElasticSearch'
       ],
       list2: ["ReactJS"],
       choice: 'list1',

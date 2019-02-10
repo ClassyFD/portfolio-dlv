@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Logo from '../res/logo.png';
-import { TweenMax } from 'gsap';
+import { TweenMax, Elastic } from 'gsap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../redux/actions/nav.actions';

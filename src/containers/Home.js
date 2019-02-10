@@ -5,6 +5,8 @@ import * as actions from '../redux/actions/nav.actions';
 import '../styles/home.css';
 import AnimateHOC from '../hocs/Animate';
 import clone from 'clone';
+import { Link } from 'react-router-dom';
+import Resume from '../res/fernando_dev_resume.pdf';
 
 const homeTL = new TimelineMax();
 const mountTL = new TimelineMax();
@@ -44,7 +46,7 @@ class Home extends Component {
     const softSkillElements = softSkills.map((ssEL, ssIndex)=>{
       return (
         <div key={`${ssIndex}-soft-skill`} className={`home-soft-skill home-soft-skill-${ssIndex}`}>
-          <div className="soft-skill-bg-container">
+          <div key={`${ssIndex}-soft-skill-bg-container`} className="soft-skill-bg-container">
             <div className={`soft-skill-bg-${ssIndex} soft-skill-bg`}/>
           </div>
           <svg key={`${ssIndex}-soft-skill-svg-2`} style={{position: 'absolute'}} stroke="black" strokeWidth="4" strokeDasharray="100" strokeDashoffset="100" fill="none" className={`soft-skill-svg-${ssIndex} soft-skill-svg-2-${ssIndex}`}>
@@ -155,10 +157,19 @@ class Home extends Component {
     TweenMax.to(`.home-button-${type}`, .5, {color: '#bcdefa'})
     TweenMax.to(`.home-button-bg-${type}`, .5, type==='projects'? {left: -120, top: 30, ease: Power4.easeOut} : {left: -130, top: 20, ease: Power4.easeOut})  
   }
-  clickButton = (type) => {
+  clickButton = (type, e, route) => {
     const tl = new TimelineMax();
     tl.to(`.home-button-${type}`, .1, {height: 28.6, top: 10})
       .to(`.home-button-${type}`, 1, {height: 38.6, top: 0, ease: Elastic.easeOut})  
+    if (e) {
+      const atl = new TimelineMax();
+      e.preventDefault();
+      atl.to('.animate-hoc', .3, {opacity: 0})
+      .call((()=>{
+        this.props.history.push(route)
+        atl.fromTo('.animate-hoc', .3, {opacity: 0}, {opacity: 1});
+      }), null, null);
+    }
   }
 
   enterSoftSkill = (type) => {
@@ -203,14 +214,18 @@ class Home extends Component {
             Software Developer || ReactJS | Redux | HTML | CSS | JS 
           </p>
           <section className="home-button-container">
-            <button onClick={()=>{this.clickButton('projects')}} onMouseLeave={()=>{this.leaveButton('projects')}} onMouseEnter={()=>{this.enterButton('projects')}} className="home-button home-button-projects">
-              <p style={{position:'relative', zIndex:5}}>View Projects</p>
-              <span className="home-button-bg home-button-bg-projects"/>
-            </button>
-            <button onClick={()=>{this.clickButton('resume')}} onMouseLeave={()=>{this.leaveButton('resume')}} onMouseEnter={()=>{this.enterButton('resume')}} className="home-button home-button-resume">
-              <p style={{position:'relative', zIndex:5}}>Download Resume</p>
-              <span className="home-button-bg home-button-bg-resume"/>
-            </button>
+            <Link style={{textDecoration:'none'}} to="/projects">
+              <button onClick={(e)=>{this.clickButton('projects', e, '/projects')}} onMouseLeave={()=>{this.leaveButton('projects')}} onMouseEnter={()=>{this.enterButton('projects')}} className="home-button home-button-projects">
+                <p style={{position:'relative', zIndex:5}}>View Projects</p>
+                <span className="home-button-bg home-button-bg-projects"/>
+              </button>
+            </Link>
+            <a style={{textDecoration:'none'}} href={Resume} download="fernando_dev_resume">
+              <button onClick={()=>{this.clickButton('resume')}} onMouseLeave={()=>{this.leaveButton('resume')}} onMouseEnter={()=>{this.enterButton('resume')}} className="home-button home-button-resume">
+                <p style={{position:'relative', zIndex:5}}>Download Resume</p>
+                <span className="home-button-bg home-button-bg-resume"/>
+              </button>
+            </a>
           </section>
         </article>
         <article className="home-soft-skills-section">
@@ -221,25 +236,24 @@ class Home extends Component {
   }
 }
 const mapStateToProps = () => {
-  return {}
+  return {
+  }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
+    setAnimatedComp: (route) => dispatch({
+      type: actions.SET_ANIMATED_COMP,
+      value: {
+        status: false,
+        route
+      }
+    }),
     setMountedComp: (value) => {
       dispatch({
         type: actions.SET_MOUNTED_COMP, 
         value
       });
     },
-    setAnimatedComp: (route) => {
-      dispatch({
-        type: actions.SET_ANIMATED_COMP,
-        animatedComp: {
-          status: false,
-          route
-        },
-      })
-    }
   }
 }
 

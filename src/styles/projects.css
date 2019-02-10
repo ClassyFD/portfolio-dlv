@@ -1,82 +1,59 @@
 .Projects {
   flex-direction: column;
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+  margin-top: 2px;
 }
-.projects_span {
-  color: #42474b;
-  opacity: .7;
-  display: flex;
-  cursor: default;
-  user-select: none;
-  position: relative;
-  font-family: tbb;
-  padding: 5px 0 5px 0;
-}
-.projects_p {
-  font-family: abel;
-  font-size: 16px;
-  user-select: none;
-  color: white;
-  position: relative;
-  left: 15px;
-}
-.projects_intro_section {
+.projects-intro-article {
   padding: 50px 50px 20px 50px;
 }
-.projects_intro_section aside {
-  display: flex;
+.projects-paragraph {
   color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
 }
-.projects_intro_section aside h1 {
-  position: relative;
-  user-select: none;
-  line-height: 48px;
-  font-size: 48px;
-  position: relative;
-  z-index: 10;
-  left: 15px;
-  font-family: tbb;
-}
-.projects_project_section {
+.projects-project-section {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
   min-height: 100vh;
   position: relative;
+  padding-bottom: 50px;
 }
-.projects_el {
+.projects-el {
   width: 300px;
   height: 350px;
-  background: #37393b;
+  background: #161b1f;
   border-radius: 10px;
-  box-shadow:inset 0 0 10px rgba(0,0,0,.5);
   display: flex;
   flex-direction: column;
   margin: 10px;
-  font-family: abel;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: white;
 }
-.projects_el img {
+.projects-el img {
   opacity: .7;
   width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   user-select: none;
 }
-.projects_el h2 {
+.projects-el h2 {
   margin: 10px auto;
   text-align: center;
+  color: #BCDEFA;
 }
-.projects_el p {
+.projects-el p {
   margin: 0px;
   padding: 5px 15px 0 15px;
 }
-.projects_link {
+.projects-link {
   text-decoration: underline;
-  color: #59bd8e;
+  color: #BCDEFA;
 }
-.projects_social_media {
+.projects-social-media {
   text-decoration: none;
-  color: #59bd8e;
+  color: #BCDEFA;
   padding-left: 5px;
 }

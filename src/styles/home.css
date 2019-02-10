@@ -70,8 +70,11 @@
   display: flex;
   align-items: center;
   outline: none;
+  height: auto;
+  width: auto;
+  font-size: 14px;
 }
-.home-button:nth-of-type(2) {
+.home-button-resume {
   margin-left: 10px;
 }
 .home-button-bg-projects {

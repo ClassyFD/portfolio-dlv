@@ -37,7 +37,7 @@ const AnimateHOC = () => {
         setAnimatedComp: (route) => dispatch({
           type: actions.SET_ANIMATED_COMP,
           animatedComp: {
-            status: false,
+            status: true,
             route
           },
         })

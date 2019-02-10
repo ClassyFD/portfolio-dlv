@@ -4,7 +4,8 @@ import '../styles/about.css'
 import * as actions from '../redux/actions/nav.actions';
 import Profile from '../res/profile_picture.png';
 import AnimateHOC from '../hocs/Animate';
-import { TimelineMax, Power1, TweenMax } from 'gsap';
+import { TimelineMax, TweenMax } from 'gsap';
+import { Link } from 'react-router-dom';
 
 let _isMounted = true;
 const screenTL = new TimelineMax();
@@ -23,32 +24,26 @@ class About extends Component {
     const articleSections = [
       {
         title: 'Why I picked Web Development',
-        open: false,
         paragraphs: [
           {
             title: <h2>Early childhood</h2>,
-            content: <p>Growing up with access to computers It was natural for me to be attracted to technology. I was fascinated by everything about it; It felt like magic.</p>
-          },
-          {
-            content: <p>I could sit in front of a computer for many hours without getting bored!</p>
+            content: <p>Growing up with access to computers It was natural for me to be attracted to technology. I could sit in front of a computer for many hours without getting bored! I was fascinated by everything about it; It felt like magic.</p>
           },
           {
             title: <h2>High school, freshman-junior years</h2>,
-            content: <p>During my teenage years, I still loved technology. I knew that I wanted to create a game one day, but I still hadn't looked into programming for my future. I was also preoccupied with NJROTC, a military program they offered at my school.</p>
+            content: <p>During my teenage years, I still loved technology. I knew that I wanted to create a game one day, but I still hadn't looked into programming for my future. I was also preoccupied with NJROTC, a military program they offered at my school. I was potentially looking at joining the Marine Corps or the Navy.</p>
           },
           {
             title: <h2>High school, senior year</h2>,
-            content: <p>I began learning to code early 2017, at <a onMouseEnter={()=>{this.enterLink('code')}} onMouseLeave={()=>{this.leaveLink('code')}} className="about-link-code" href="https://freecodecamp.org" target="_blank" rel="noopener noreferrer">freecodecamp.org</a>. There, I taught myself the basics of HTML, CSS and JavaScript. I also created some of my first projects: A <a onMouseEnter={()=>{this.enterLink('poke')}} onMouseLeave={()=>{this.leaveLink('poke')}} className="about-link-poke" href="https://pokedex-dlv.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Pokedex</a> and the <a onMouseEnter={()=>{this.enterLink('gol')}} onMouseLeave={()=>{this.leaveLink('gol')}} className="about-link-gol" href="https://game-of-life-fd.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Game of life.</a> They weren't perfect, but they were fun to make. It definitely set the path to pursuing a career in software development!</p>
+            content: <p>My sister called me one night and told me that web development was big these days, and that there was a lot of potential in that field. I decided that instead of joining the military, I would look into programming to see how I felt about it.</p>
           },
-          // {
-          //   title: <h2>August 2017</h2>,
-          //   content: <p>Later that same year, I attended <a onMouseEnter={()=>{this.enterLink('dev')}} onMouseLeave={()=>{this.leaveLink('dev')}} className="about-link-dev" href="https://devmountain.com" target="_blank" rel="noopener noreferrer">DevMountain</a>, an intense 13 week coding bootcamp. While there, I started learning fullstack web development, specifically with ReactJS. I spent 900+ hours learning new technologies and developing personal projects.</p>
-          // },
+          {
+            content: <p>I began learning to code early 2017, at <a onMouseEnter={()=>{this.enterLink('code')}} onMouseLeave={()=>{this.leaveLink('code')}} className="about-link-code" href="https://freecodecamp.org" target="_blank" rel="noopener noreferrer">freecodecamp.org</a>. There, I taught myself the basics of HTML, CSS and JavaScript. I realized that I was not only good at it, but I had a lot of fun doing it! I also created some of my first projects: A <a onMouseEnter={()=>{this.enterLink('poke')}} onMouseLeave={()=>{this.leaveLink('poke')}} className="about-link-poke" href="https://pokedex-dlv.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Pokedex</a> and the <a onMouseEnter={()=>{this.enterLink('gol')}} onMouseLeave={()=>{this.leaveLink('gol')}} className="about-link-gol" href="https://game-of-life-fd.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Game of life.</a> They weren't perfect, but they were fun to make. It definitely set the path to pursuing a career in software development!</p>
+          },
         ]
       },
       {
         title: '2019 Goals',
-        open: false,
         paragraphs: [
           {
             title: <h2>Learn a new Framework</h2>,
@@ -70,7 +65,6 @@ class About extends Component {
       },
       {
         title: 'Work History',
-        open: false,
         paragraphs: [
           {
             title: <h2>Hispanic Alliance, Wordpress Developer (01/2019 - present)</h2>,
@@ -86,27 +80,43 @@ class About extends Component {
           {
             title: <h2>iFunny, Volunteer Fullstack Developer (02/2018 - 04/2018)</h2>,
             content: <p>Cloned and improved most features of the original website, as well as designed and implemented new ones.</p>
-          }
+          },
+          {
+            title: <h3>7 other Projects coded with ReactJS</h3>,
+            content: <p>Most of my experience comes from creating web applications for non-profits and start-ups using ReactJS. All projects have been front end, back end, or both. (fullstack)</p>
+          },
+          {
+            content: <p>View my projects <Link onMouseEnter={()=>{this.enterLink('projects')}} onMouseLeave={()=>{this.leaveLink('projects')}} className="about-link-projects" to="/projects">here</Link>!</p>
+          },
         ]
       },
       {
         title: 'Education',
-        open: false,
         paragraphs: [
           {
-            title: <h2>Hispanic Alliance</h2>,
-            content: <p>Worked as wordpress developer</p>
+            title: <h2>DevMountain</h2>,
+            content: <p>I attended <a onMouseEnter={()=>{this.enterLink('dev')}} onMouseLeave={()=>{this.leaveLink('dev')}} className="about-link about-link-dev" href="https://devmountain.com" target="_blank" rel="noopener noreferrer">DevMountain</a>, an intense 13 week coding bootcamp. While there, I started learning fullstack web development, specifically with ReactJS. I spent 900+ hours learning new technologies and developing personal projects.</p>
+          },
+          {
+            content: <p>After graduating from the bootcamp, I received a Javascript Web Development <a onMouseEnter={()=>{this.enterLink('cert')}} onMouseLeave={()=>{this.leaveLink('cert')}} className="about-link about-link-cert" href="https://www.youracclaim.com/badges/a02aa461-981c-4ca2-a195-1df270e5716f" target="_blank" rel="noopener noreferrer">Badge</a></p>
           },
         ]
       },
       {
         title: 'Hobbies',
-        open: false,
         paragraphs: [
           {
-            title: <h2>Hispanic Alliance</h2>,
-            content: <p>Worked as wordpress developer</p>
+            title: <h2>Fitness</h2>,
+            content: <p>I love working out (Not as much as I love pizza though!), and I go to the gym at least 4 times a week!</p>
           },
+          {
+            title: <h2>Music</h2>,
+            content: <p>I grew up in a family of musicians! I know how to play the piano, and a little bit of guitar.</p>
+          },
+          {
+            title: <h2>Random activities</h2>,
+            content: <p>I'm very good at ping pong, pool, and bowling. (fair warning!)</p>
+          }
         ]
       },
     ]
@@ -115,6 +125,11 @@ class About extends Component {
     })
   }
   componentDidMount = () => {
+    _isMounted = true;
+    this.setState({
+      articleOpen: false,
+      articleSelected: null 
+    })
   }
   enterButtons = (type) => {
     TweenMax.to(`.fa-${type}-about`, .4, {color: 'white'});
@@ -142,14 +157,29 @@ class About extends Component {
   leaveArticleSection = (type) => {
   TweenMax.to(`.about-article-title-${type}`, .3, {color: '#BCDEFA'})
   }
+
+  enterCloseButton = () => {
+    TweenMax.to('.article-screen-close-button', .3, {opacity:.7})
+  }
+  leaveCloseButton = () => {
+    TweenMax.to('.article-screen-close-button', .3, {opacity:1})
+  }
+
   openArticleSection = (type) => {
     if (!this.state.articleOpen) {
       const coords = this[`articleSection${type}`].getBoundingClientRect(),
         elemRect = this.elemRectRef.getBoundingClientRect(),
         offset = elemRect.top - coords.top,
-        xPosition = coords.x - 200,
-        yPosition = offset * -1,
-        tl = new TimelineMax();
+        tl = new TimelineMax(),
+        innerWidth = window.innerWidth;
+
+        let xPosition = coords.x - 200,
+            yPosition = offset * -1;
+            
+        if (innerWidth <= 510) {
+          xPosition += 200;
+        }
+
       tl.to('.about-article-section-screen', 0, {x: xPosition, y: yPosition, width: 250, height: 250, opacity: 1})
         .to('.about-article-section', .2, {opacity: 0})
         .to('.About', .5, {scrollTo: 0})
@@ -177,8 +207,14 @@ class About extends Component {
     const coords = this[`articleSection${this.state.articleSelected}`].getBoundingClientRect(),
     elemRect = this.elemRectRef.getBoundingClientRect(),
     offset = elemRect.top - coords.top,
-    xPosition = coords.x - 200,
-    yPosition = offset * -1;
+    innerWidth = window.innerWidth;
+
+    let xPosition = coords.x - 200,
+        yPosition = offset * -1;
+        
+    if (innerWidth <= 510) {
+      xPosition += 200;
+    }
     screenTL.to('.article-screen-close-button', .2, {opacity: 0})
       .to('.article-screen-close-button', 0, {display: 'none'})
       .to('.article-selected-container', .2, {opacity: 0}, '-=.2')
@@ -211,7 +247,6 @@ class About extends Component {
         </section>
       )
     })
-    console.log(this.state.articleSelected)
     const articleSelectedParagraphs = this.state.articleSelected || this.state.articleSelected === 0? this.state.articleSections[this.state.articleSelected].paragraphs.map((asEl, asIn) => {
       return (
         <div key={`article-selected-${asIn}`}>
@@ -220,7 +255,6 @@ class About extends Component {
         </div>
       )
     }): null;
-    console.log(articleSelectedParagraphs)
     return (
       <main className="About">
         <aside className="about-left-side">
@@ -229,7 +263,7 @@ class About extends Component {
             <h2 className="about-h2">Location</h2>
             <p className="about-heading-p">Gainesville, Georgia</p>
           </section>
-          <section className="about-heading-section">
+          <section className="about-heading-section about-heading-section-skills">
             <h2 className="about-h2">Skill set</h2>
             <p className="about-heading-p">ReactJS, Redux, HTML, CSS, JS, NodeJS, ExpressJS, PostgreSQL, AWS, GCP, Firebase </p>
           </section>
@@ -247,18 +281,12 @@ class About extends Component {
           <div ref={(e)=> this.elemRectRef = e} className="about-article-section-container">
             {aboutArticleSections}
             <section className="about-article-section-screen">
-              <div style={{opacity: 0, display: 'none', cursor: 'pointer'}} onClick={()=>{this.closeArticleSection()}} className="article-screen-close-button">x</div>
+              <div style={{opacity: 0, display: 'none', cursor: 'pointer'}} onClick={()=>{this.closeArticleSection()}} onMouseEnter={()=>{this.enterCloseButton()}} onMouseLeave={()=>{this.leaveCloseButton()}} className="article-screen-close-button">x</div>
               <div className="article-selected-container">
                 {articleSelectedParagraphs}
               </div>
             </section>
           </div>
-          {/* <section className="about-intro-section">
-            
-            <p className="about-paragraph">Later that same year, I attended <a onMouseEnter={()=>{this.enterLink('dev')}} onMouseLeave={()=>{this.leaveLink('dev')}} className="about_link about_link_dev" href="https://devmountain.com" target="_blank" rel="noopener noreferrer">DevMountain</a>, an intense 13 week coding bootcamp. While there, I started learning fullstack web development, specifically with ReactJS. I spent 900+ hours learning new technologies and developing personal projects.</p>
-            <p className="about-paragraph">After graduating from the bootcamp and receiving my Javascript Web Development <a onMouseEnter={()=>{this.enterLink('cert')}} onMouseLeave={()=>{this.leaveLink('cert')}} className="about_link about_link_cert" href="https://www.youracclaim.com/badges/a02aa461-981c-4ca2-a195-1df270e5716f" target="_blank" rel="noopener noreferrer">Badge</a>, I joined a startup company named <a onMouseEnter={()=>{this.enterLink('vibix')}} onMouseLeave={()=>{this.leaveLink('vibix')}} className="about_link about_link_vibix" href="https://vibix-web.firebaseapp.com/" target="_blank" rel="noopener noreferrer">Vibix</a>. We worked on developing shopify apps to automate users' daily time-consuming tasks. I was solely responsible to build the web presence of the company by utilizing the latest technology (ReactJS/Redux/Cloud Functions/Firebase).</p>
-            <p className="about-paragraph">I don't just code, music and fitness are also a big part of my life! If you would like to see more, check out my social media!</p>
-          </section> */}
         </article>
       </main>
     )

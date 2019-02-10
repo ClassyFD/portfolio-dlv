@@ -200,7 +200,7 @@ class Home extends Component {
           <header className="home-header">
             <h2 className="home-h2 home-slide home-motivated">Motivated</h2>
             <h2 className="home-h2 home-slide home-efficient">efficient</h2>
-            <h2 className="home-h2 home-slide home-enthusiastic">eager-to-learn</h2>
+            <h2 className="home-h2 home-slide home-enthusiastic">eager</h2>
             <h2 className="home-h2 home-slide home-thinker">thinker.</h2>
             <h2 className="home-h2 home-meet">
               <span className="home-m-span">M</span>

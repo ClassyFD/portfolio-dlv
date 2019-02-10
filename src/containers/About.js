@@ -59,7 +59,7 @@ class About extends Component {
           },
           {
             title: <h3>Help me achieve my goals!</h3>,
-            content:  <p> Send me an email: <a onMouseEnter={()=>{this.enterLink('email')}} onMouseLeave={()=>{this.leaveLink('email')}} className="about-link-email" href="mailto:fernandodlv32@gmail.com">fernandodlv32@gmail.com</a>; I'd love to talk about any potential opportunities!</p>
+            content:  <p> Send me an email: <a onMouseEnter={()=>{this.enterLink('email')}} onMouseLeave={()=>{this.leaveLink('email')}} className="about-link-email" href="mailto:fernandodlv32@gmail.com">fernandodlv32@gmail.com</a>; I'd love to talk about any potential collabs/opportunities!</p>
           }
         ]
       },

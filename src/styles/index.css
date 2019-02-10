@@ -3,7 +3,6 @@ html, body {
   position: relative;
   min-height: 100vh;
   width: 100%;
-  -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
 }
 h1 {
@@ -18,11 +17,13 @@ p {
   height: 100vh;
   background: #22292F;
   position: relative;
-  -webkit-overflow-scrolling: touch;
 }
 .app-main-container {
   top: 70px;
   position: relative;
   overflow: hidden;
   height: calc(100vh - 70px);
+}
+.Home, .About, .Skills, .Projects, .Contact {
+  -webkit-overflow-scrolling: touch;
 }

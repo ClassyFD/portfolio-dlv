@@ -10,6 +10,7 @@ import LandingIfunny from '../res/landing_ifunny.png';
 import LandingQuiltback from '../res/landing-quiltback.png';
 import LandingDeliwin from '../res/landing-deliwin.png';
 import GameOfLife from '../res/game-of-life.png';
+import GameOfLifePHP from '../res/game-of-life-php.png';
 import HALanding from '../res/ha-landing.png';
 import { TweenMax } from 'gsap';
 
@@ -19,6 +20,12 @@ class Projects extends Component {
     this.state = {
       introText: 'My Projects',
       projects: [
+        {
+          name: 'Game of Life (PHP)',
+          description: <p>A clone of <a onMouseEnter={()=>{this.enterLink('gol')}} onMouseLeave={()=>{this.leaveLink('gol')}} className="projects-link projects-link-gol" href="https://bitstorm.org/gameoflife/" target="_blank" rel="noopener noreferrer">John Conway's Game of Life</a>. 12 hours spent learning PHP from scratch in order to get a better grasp on the interactions between the front and back end of an application.</p>,
+          image: GameOfLifePHP,
+          href: "https://github.com/ClassyFD/game-of-life-php",
+        },
         {
           name: 'Hispanic Alliance of GA',
           description: <p>Helped a non-profit redo/update their wordpress website. Added spanish translations, storyboards, and refactored old components.</p>,
@@ -55,7 +62,7 @@ class Projects extends Component {
           image: LandingDeliwin,
         },
         {
-          name: 'Game of Life',
+          name: 'Game of Life (React)',
           description: <p>A clone of <a onMouseEnter={()=>{this.enterLink('gol')}} onMouseLeave={()=>{this.leaveLink('gol')}} className="projects-link projects-link-gol" href="https://bitstorm.org/gameoflife/" target="_blank" rel="noopener noreferrer">John Conway's Game of Life</a> with my own design.</p>,
           image: GameOfLife,
           href: "https://game-of-life-fd.firebaseapp.com",

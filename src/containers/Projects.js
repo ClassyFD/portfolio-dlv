@@ -22,7 +22,7 @@ class Projects extends Component {
       projects: [
         {
           name: 'Game of Life (PHP)',
-          description: <p>A clone of <a onMouseEnter={()=>{this.enterLink('gol')}} onMouseLeave={()=>{this.leaveLink('gol')}} className="projects-link projects-link-gol" href="https://bitstorm.org/gameoflife/" target="_blank" rel="noopener noreferrer">John Conway's Game of Life</a>. 12 hours spent learning PHP from scratch in order to get a better grasp on the interactions between the front and back end of an application.</p>,
+          description: <p> 12 hours spent learning PHP from scratch by cloning <a onMouseEnter={()=>{this.enterLink('gol')}} onMouseLeave={()=>{this.leaveLink('gol')}} className="projects-link projects-link-gol" href="https://bitstorm.org/gameoflife/" target="_blank" rel="noopener noreferrer">John Conway's Game of Life</a>, in order to get a better grasp on the interactions between the front and back end of an application.</p>,
           image: GameOfLifePHP,
           href: "https://github.com/ClassyFD/game-of-life-php",
         },
